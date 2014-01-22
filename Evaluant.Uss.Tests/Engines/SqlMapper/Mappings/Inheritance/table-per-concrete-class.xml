@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="Inheritance.MediaCategory" schema="TPCC" table="MediaCategory">
+    <Attribute name="CategoryId" field="CategoryId" db-type="Int32" primary-key="true" generator="native"/>
+    <Attribute name="Name" field="Name" db-type="AnsiString" size="50"/>
+    <Reference name="SubCategories">
+      <Rule parent-field="CategoryId" child-table="MediaCategory" child-field="ParentCategoryId" />
+    </Reference>
+    <Reference name="Medias">
+      <Rule parent-field="CategoryId" child-table="MediaInCategories" child-field="MediaCategoryId" />
+      <Rule parent-table="MediaInCategories" parent-field="MediaId" child-table="Article" child-field="MediaId" />
+      <Rule parent-table="MediaInCategories" parent-field="MediaId" child-table="Video" child-field="MediaId" />
+    </Reference>
+  </Entity>
+
+  <!-- 
+    Media is ignored as it is abstract and there is no specific table for this class.
+    This is only for this inheritance mapping scheme.
+  -->
+  
+  <Entity type="Inheritance.Article" table="Article" schema="TPCC">
+    <!-- 
+      We need to define every attributes as it could have a different column type
+    -->
+    <Inheritance type="table-per-concrete-class" />
+    <Attribute name="MediaId" field="ArticleId" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="Title" field="Title" db-type="AnsiString" size="50" />
+    <Attribute name="ArticleContent" field="ArticleContent" db-type="AnsiString" size="0"/>
+  </Entity>
+
+  <Entity type="Inheritance.Video" table="Video" schema="TPCC">
+    <Inheritance type="table-per-concrete-class" />
+    <Attribute name="MediaId" field="VideoId" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="Title" field="Title" db-type="AnsiString" size="50" />
+    <Attribute name="Rating" field="Rating" db-type="Int32" />
+  </Entity>
+
+</Mapping>

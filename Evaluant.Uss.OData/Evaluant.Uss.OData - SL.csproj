@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E93B359D-AC7A-45BB-AD2A-C1D96F828EDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.OData</RootNamespace>
+    <AssemblyName>Evaluant.Uss.OData</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile>Profile131</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Evaluant.Uss.PersistenceEngine.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Assemblies\SL\Evaluant.Uss.PersistenceEngine.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="NLinq">
+      <HintPath>..\Assemblies\NLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atom\AtomContentProperty.cs" />
+    <Compile Include="Atom\AtomEntry.cs" />
+    <Compile Include="Atom\AtomFeed.cs" />
+    <Compile Include="Atom\AtomLink.cs" />
+    <Compile Include="Edm\Association.cs" />
+    <Compile Include="Edm\DataServices.cs" />
+    <Compile Include="Edm\EntityType.cs" />
+    <Compile Include="Edm\Property.cs" />
+    <Compile Include="Http\CaseInsensitiveAscii.cs" />
+    <Compile Include="Http\ClientHttpWebRequest.cs" />
+    <Compile Include="Http\ClientHttpWebResponse.cs" />
+    <Compile Include="Http\ClientWebHeaderCollection.cs" />
+    <Compile Include="Http\DataParseStatus.cs" />
+    <Compile Include="Http\HeaderInfo.cs" />
+    <Compile Include="Http\HeaderInfoTable.cs" />
+    <Compile Include="Http\HttpHeaderToName.cs" />
+    <Compile Include="Http\HttpRequestHeader.cs" />
+    <Compile Include="Http\HttpRequestHeaderEnumToName.cs" />
+    <Compile Include="Http\HttpStack.cs" />
+    <Compile Include="Http\HttpStatusCode.cs" />
+    <Compile Include="Http\HttpWebRequest.cs" />
+    <Compile Include="Http\HttpWebResponse.cs" />
+    <Compile Include="Http\NameValueFromDictionary.cs" />
+    <Compile Include="Http\ScriptObjectUtility.cs" />
+    <Compile Include="Http\ScriptXmlHttpRequest.cs" />
+    <Compile Include="Http\ValidationHelper.cs" />
+    <Compile Include="Http\WebException.cs" />
+    <Compile Include="Http\WebExceptionStatus.cs" />
+    <Compile Include="Http\WebHeaderCollection.cs" />
+    <Compile Include="Http\WebHeaderCollectionType.cs" />
+    <Compile Include="Http\WebParseError.cs" />
+    <Compile Include="Http\WebParseErrorCode.cs" />
+    <Compile Include="Http\WebParseErrorSection.cs" />
+    <Compile Include="Http\WebRequest.cs" />
+    <Compile Include="Http\WebResponse.cs" />
+    <Compile Include="Http\XHRHttpWebRequest.Cs" />
+    <Compile Include="Http\XHRHttpWebResponse.cs" />
+    <Compile Include="Http\XHRWebHeaderCollection.cs" />
+    <Compile Include="ODataAsyncState.cs" />
+    <Compile Include="ODataCommandProcessor.cs" />
+    <Compile Include="ODataPersistenceEngineAsync.cs" />
+    <Compile Include="ODataPersistenceProvider.cs" />
+    <Compile Include="Operations\Batch.cs" />
+    <Compile Include="Operations\Change.cs" />
+    <Compile Include="Operations\Changeset.cs" />
+    <Compile Include="Operations\Get.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestState.cs" />
+    <Compile Include="UriExpressions\InLineCount.cs" />
+    <Compile Include="UriExpressions\PropertyExpression.cs" />
+    <Compile Include="UriExpressions\RootContainerExpression.cs" />
+    <Compile Include="UriExpressions\UriExpression.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="Visitors\NLinqVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility - SL.csproj">
+      <Project>{90734E6C-82C2-45A4-B8B7-73DC76CCAA18}</Project>
+      <Name>Evaluant.Uss.Utility - SL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Portable.proj" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

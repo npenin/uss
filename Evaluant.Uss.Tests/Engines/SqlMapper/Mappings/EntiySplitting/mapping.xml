@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="Splitting.Person" schema="EntitySplitting" table="Person">
+    <Attribute name="Id" field="Id" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="FirstName" field="firstName" db-type="AnsiString" primary-key="false" />
+    <Attribute name="LastName" field="firstName" db-type="AnsiString" primary-key="false" />
+    <Attribute name="Birthday" field="firstName" db-type="AnsiString" primary-key="false" />
+
+    <!-- 
+      The mapping can also use a standard FK field instead of the Id. In case of the Id, the configuration should 
+      not need to be defined.
+    -->
+    
+    <Embed table="Address" schema="EntitySplitting" parent-field="Id" child-field="Id">
+      <Attribute name="Id" field="Id" db-type="Int32" primary-key="true" generator="native" />
+      <Attribute name="Street" field="street" db-type="AnsiString" primary-key="false" />
+      <Attribute name="City" field="city" db-type="AnsiString" primary-key="false" />
+      <Attribute name="Zip" field="zip" db-type="AnsiString" primary-key="false" />
+    </Embed>
+
+  </Entity>
+
+</Mapping>

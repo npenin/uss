@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49c68be4-f2ec-4fa3-a547-bdc5fbea39a3}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Modelling</Name>
+    <RootNamespace>Modelling</RootNamespace>
+    <SccProjectName></SccProjectName>
+    <SccProvider></SccProvider>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Instanciation.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Instanciation.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Instanciation.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Modelling.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Commands\Evaluant.Uss.Commands.csproj">
+      <Name>Evaluant.Uss.Commands</Name>
+      <Project>{1079bd90-3ee1-4ea6-96bf-05df592b7602}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Domain\Evaluant.Uss.Domain.csproj">
+      <Name>Evaluant.Uss.Domain</Name>
+      <Project>{637448db-230b-40f9-ab08-d721583f1b4b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.DynamicObject\Evaluant.Uss.EntityResolver.DynamicObject.csproj">
+      <Name>Evaluant.Uss.EntityResolver.DynamicObject</Name>
+      <Project>{61bc06e4-e5f5-4dd5-843c-cc58036261b7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.DynamicProxy\Evaluant.Uss.EntityResolver.Proxy.Dynamic.csproj">
+      <Name>Evaluant.Uss.EntityResolver.Proxy.Dynamic</Name>
+      <Project>{ca32e754-c64d-4ca8-9650-ca579ffef36e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.Proxy.Static\Evaluant.Uss.EntityResolver.Proxy.Static.csproj">
+      <Name>Evaluant.Uss.EntityResolver.Proxy.Static</Name>
+      <Project>{566de8b0-07e4-405b-a947-3a351fde8ed6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.Proxy\Evaluant.Uss.EntityResolver.Proxy.csproj">
+      <Name>Evaluant.Uss.EntityResolver.Proxy</Name>
+      <Project>{4d4bf5cc-e760-471e-b7c8-c4e65dbec94d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Era\Evaluant.Uss.Era.csproj">
+      <Name>Evaluant.Uss.Era</Name>
+      <Project>{ea523435-06cc-4ba2-a0ea-e4c19b2b4d9c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Extensions\Evaluant.Uss.Extensions.csproj">
+      <Name>Evaluant.Uss.Extensions</Name>
+      <Project>{05b1c413-f400-4d19-9800-0b632c474c84}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Hub\Evaluant.Uss.Hub.csproj">
+      <Name>Evaluant.Uss.Hub</Name>
+      <Project>{014a1ac0-5fe6-45ca-825e-35250df6d417}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Memory\Evaluant.Uss.Memory.csproj">
+      <Name>Evaluant.Uss.Memory</Name>
+      <Project>{24750aa7-198a-4e92-9937-33296ec22b3a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Metadata\Evaluant.Uss.MetaData.csproj">
+      <Name>Evaluant.Uss.MetaData</Name>
+      <Project>{aa40e267-a5e9-45a9-8f80-be4f834834c5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Model\Evaluant.Uss.Model.csproj">
+      <Name>Evaluant.Uss.Model</Name>
+      <Project>{67e1606e-8682-4ff8-bede-fa076e07f9ff}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.MongoDB\Evaluant.Uss.MongoDB.csproj">
+      <Name>Evaluant.Uss.MongoDB</Name>
+      <Project>{ae047892-6e00-408f-9c5c-a80cf57e8e74}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.ObjectContext.Contracts\Evaluant.Uss.ObjectContext.Contracts.csproj">
+      <Name>Evaluant.Uss.ObjectContext.Contracts</Name>
+      <Project>{785f8ae2-4968-4e83-9824-065dbe6a113b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.PersistenceEngine.Contracts\Evaluant.Uss.PersistenceEngine.Contracts.csproj">
+      <Name>Evaluant.Uss.PersistenceEngine.Contracts</Name>
+      <Project>{f29df346-0eaf-4953-b955-36057c4eacc0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.PersistentDescriptors\Evaluant.Uss.PersistentDescriptors.csproj">
+      <Name>Evaluant.Uss.PersistentDescriptors</Name>
+      <Project>{c70e97a3-f54c-405f-9aef-bc2525260d00}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Serializer\Evaluant.Uss.Serializer.csproj">
+      <Name>Evaluant.Uss.Serializer</Name>
+      <Project>{0846fa7e-3ff5-422d-beb1-6e8495c410cd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Services\Evaluant.Uss.Services.csproj">
+      <Name>Evaluant.Uss.Services</Name>
+      <Project>{b5b67216-2878-447e-b0bf-ea579dc80eed}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.SqlExpressions\Evaluant.Uss.SqlExpressions.csproj">
+      <Name>Evaluant.Uss.SqlExpressions</Name>
+      <Project>{a16a1ee5-e9c7-4e3f-9a97-73d7457d105a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.SqlMapper\Evaluant.Uss.SqlMapper.csproj">
+      <Name>Evaluant.Uss.SqlMapper</Name>
+      <Project>{9177b239-87b6-44ae-8786-7c7204f2bacb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Sync\Evaluant.Uss.Sync.csproj">
+      <Name>Evaluant.Uss.Sync</Name>
+      <Project>{c7ca6b1c-8c5d-447d-ab62-743ebfe630b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility.csproj">
+      <Name>Evaluant.Uss.Utility</Name>
+      <Project>{f2311252-dc19-4e11-89ca-293628cee68c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.WcfClient\Evaluant.Uss.WcfClient.csproj">
+      <Name>Evaluant.Uss.WcfClient</Name>
+      <Project>{2a5625a7-f099-4eef-ac51-e48f287ddd4c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.WCFService\Evaluant.Uss.WCFService.csproj">
+      <Name>Evaluant.Uss.WCFService</Name>
+      <Project>{d4d7e9fb-9d00-4c4d-91c3-d2fe73f46510}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="EngineGlobal.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="EngineGlobal.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>EngineGlobal.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="EngineGlobal.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>EngineGlobal.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Engines.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Engines.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Engines.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Engines.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Engines.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="EUSSArchitecture.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="EUSSArchitecture.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>EUSSArchitecture.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="EUSSArchitecture.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>EUSSArchitecture.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="EUSSGlobal.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="EUSSGlobal.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>EUSSGlobal.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="EUSSGlobal.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>EUSSGlobal.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+</Project>

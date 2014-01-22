@@ -1,0 +1,16 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<Name Package="{dc2ca4a9-94ff-457f-ab1b-44975f1e1e1d}" ID="103"/>
+		<Description Package="{dc2ca4a9-94ff-457f-ab1b-44975f1e1e1d}" ID="102"/>
+		<Icon Package="{dc2ca4a9-94ff-457f-ab1b-44975f1e1e1d}" ID="201" />
+		<ProjectType>VisualBasic</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>SqlMapperMapping.sqlm</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.sqlm">sqlm.sqlm</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.sqlm.diagram">sqlm.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+

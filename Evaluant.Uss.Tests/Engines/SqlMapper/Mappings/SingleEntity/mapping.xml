@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="SingleEntity.Person" table="Person" schema="SingleEntity" >
+    <Attribute name="Id" field="Id" db-type="Int32" isId="true" generator="native"/>
+    <Attribute name="FirstName" field="firstName" db-type="AnsiString" isId="false" />
+    <Attribute name="LastName" field="firstName" db-type="AnsiString" isId="false" />
+    <Attribute name="Birthday" field="firstName" db-type="AnsiString" isId="false" />
+  </Entity>
+</Mapping>

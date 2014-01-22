@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="Inheritance.MediaCategory" table="MediaCategory" schema="TPCC">
+    <Attribute name="CategoryId" field="CategoryId" db-type="Int32" primary-key="true" generator="native"/>
+    <Attribute name="Name" field="Name" db-type="AnsiString" size="50"/>
+    <Reference name="SubCategories">
+      <Rule parent-field="CategoryId" child-table="MediaCategory" child-field="ParentCategoryId" />
+    </Reference>
+    <Reference name="Medias">
+      <Rule parent-field="CategoryId" child-table="MediaInCategories" child-field="MediaCategoryId" />
+      <Rule parent-field="MediaId" child-table="Media" child-field="MediaId" />
+    </Reference>
+  </Entity>
+
+  <Entity type="Inheritance.Media" table="Media" schema="TPCC">
+    <Attribute name="MediaId" field="MediaId" db-type="Int32" primary-key="true" generator="native"/>
+    <Attribute name="Title" field="Title" db-type="AnsiString" size="50" />
+  </Entity>
+
+  <Entity type="Inheritance.Article" table="Media" schema="TPCC">
+    <!-- 
+      Using table-per-hierarchy inheritance, the primary-key mapping only needs to be defined on the 
+      root class 
+    -->
+    <Inheritance type="table-per-hierarchy" discriminator="type = 'Article'" /> 
+    <Attribute name="ArticleContent" field="ArticleContent" db-type="AnsiString" size="0"/>
+  </Entity>
+
+  <Entity type="Inheritance.Video" table="Media" schema="TPCC">
+    <Inheritance type="table-per-hierarchy" discriminator="type = 'Video'" />
+    <Attribute name="Rating" field="Rating" db-type="Int32" />
+  </Entity>
+
+</Mapping>

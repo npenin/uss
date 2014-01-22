@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E93B359D-AC7A-45BB-AD2A-C1D96F828EDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.OData</RootNamespace>
+    <AssemblyName>Evaluant.Uss.OData</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ODataCommandProcessor.cs" />
+    <Compile Include="ODataPersistenceEngine.cs" />
+    <Compile Include="ODataPersistenceProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UriExpressions\InLineCount.cs" />
+    <Compile Include="UriExpressions\PropertyExpression.cs" />
+    <Compile Include="UriExpressions\RootContainerExpression.cs" />
+    <Compile Include="UriExpressions\UriExpression.cs" />
+    <Compile Include="Visitors\NLinqVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Commands\Evaluant.Uss.Commands.csproj">
+      <Project>{1079BD90-3EE1-4EA6-96BF-05DF592B7602}</Project>
+      <Name>Evaluant.Uss.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Domain\Evaluant.Uss.Domain.csproj">
+      <Project>{637448DB-230B-40F9-AB08-D721583F1B4B}</Project>
+      <Name>Evaluant.Uss.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Era\Evaluant.Uss.Era.csproj">
+      <Project>{EA523435-06CC-4BA2-A0EA-E4C19B2B4D9C}</Project>
+      <Name>Evaluant.Uss.Era</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Metadata\Evaluant.Uss.MetaData.csproj">
+      <Project>{AA40E267-A5E9-45A9-8F80-BE4F834834C5}</Project>
+      <Name>Evaluant.Uss.MetaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.PersistenceEngine.Contracts\Evaluant.Uss.PersistenceEngine.Contracts.csproj">
+      <Project>{F29DF346-0EAF-4953-B955-36057C4EACC0}</Project>
+      <Name>Evaluant.Uss.PersistenceEngine.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility.csproj">
+      <Project>{F2311252-DC19-4E11-89CA-293628CEE68C}</Project>
+      <Name>Evaluant.Uss.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLinq\NLinq\NLinq.csproj">
+      <Project>{05FF616B-289A-41AE-A746-ACFFA6825602}</Project>
+      <Name>NLinq</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

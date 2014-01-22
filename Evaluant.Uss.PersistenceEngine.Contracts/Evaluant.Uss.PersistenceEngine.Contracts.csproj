@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F29DF346-0EAF-4953-B955-36057C4EACC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.PersistenceEngine.Contracts</RootNamespace>
+    <AssemblyName>Evaluant.Uss.PersistenceEngine.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Evaluant.Uss.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.Era, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.Era.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.MetaData.Light, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.MetaData.Light.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.PersistentDescriptors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.PersistentDescriptors.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.Serializer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Evaluant.Uss.Serializer\bin\Debug\Evaluant.Uss.Serializer.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.Utility">
+      <HintPath>..\Evaluant.Uss.Commands\bin\Debug\Evaluant.Uss.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="NLinq">
+      <HintPath>..\Assemblies\NLinq.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandEventRaiser.cs" />
+    <Compile Include="CommonVisitors\BaseCommandProcessor.cs" />
+    <Compile Include="CommonVisitors\ExpressionUpdater.cs" />
+    <Compile Include="CommonVisitors\ExpressionVisitor.cs" />
+    <Compile Include="CommonVisitors\FromInMutator.cs" />
+    <Compile Include="CommonVisitors\ICommandProcessor.cs" />
+    <Compile Include="CommonVisitors\InferRelationshipQueryAnalyzer.cs" />
+    <Compile Include="CommonVisitors\InferRelationShips.cs" />
+    <Compile Include="CommonVisitors\RelationshipQueryCreator.cs" />
+    <Compile Include="EntityEventArgs.cs" />
+    <Compile Include="IPersistenceEngine.cs" />
+    <Compile Include="IPersistenceEngineAsync.cs" />
+    <Compile Include="IPersistenceProvider.cs" />
+    <Compile Include="IPersistenceProviderAsync.cs" />
+    <Compile Include="NLinqVisitors\ExpressionWriter.cs" />
+    <Compile Include="NLinqVisitors\INLinqVisitor.cs" />
+    <Compile Include="NLinqVisitors\NLinqExpressionUpdater.cs" />
+    <Compile Include="NLinqVisitors\NLinqExpressionVisitor.cs" />
+    <Compile Include="PersistenceEngineAsyncImplementation.cs" />
+    <Compile Include="PersistenceEngineImplementation.cs" />
+    <Compile Include="PersistenceProviderAsyncImplementation.cs" />
+    <Compile Include="PersistenceProviderImplementation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyPersistenceEngine.cs" />
+    <Compile Include="ProxyPersistenceEngineAsync.cs" />
+    <Compile Include="ProxyPersistenceProvider.cs" />
+    <Compile Include="ProxyPersistenceProviderAsync.cs" />
+    <Compile Include="ReferenceEventArgs.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="UniversalStorageException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Metadata\Evaluant.Uss.MetaData.csproj">
+      <Project>{4E7FED63-449B-4E88-A9A1-F16EBC4ADB6B}</Project>
+      <Name>Evaluant.Uss.MetaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="Evaluant.Uss.PersistenceEngine.Contracts.Instrumentation.csproj">
+      <Project>{6885964F-9644-4861-9967-F453D1810E15}</Project>
+      <Name>Evaluant.Uss.PersistenceEngine.Contracts.Instrumentation</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\NetFX.proj" />
+  <Import Project="..\ProvideMultiplatformVersions.proj" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <MergedOutDir>$(ProjectDir)..\Assemblies\Net\</MergedOutDir>
+  </PropertyGroup>
+  <Target Name="AfterBuild">
+    <CallTarget Targets="BuildNetVersion" />
+  </Target>
+</Project>

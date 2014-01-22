@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{578318D7-F96C-4C5C-848B-173370D409D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.PersistenceEngine.Contracts</RootNamespace>
+    <AssemblyName>Evaluant.Uss.PersistenceEngine.Contracts.Light</AssemblyName>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkProfile>Profile147</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ANLP">
+      <HintPath>..\Dependencies\ANLP.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NLinq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Assemblies\NLinq.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandEventRaiser.cs" />
+    <Compile Include="CommonVisitors\BaseCommandProcessor.cs" />
+    <Compile Include="CommonVisitors\ExpressionUpdater.cs" />
+    <Compile Include="CommonVisitors\ExpressionVisitor.cs" />
+    <Compile Include="CommonVisitors\FromInMutator.cs" />
+    <Compile Include="CommonVisitors\ICommandProcessor.cs" />
+    <Compile Include="CommonVisitors\InferRelationshipQueryAnalyzer.cs" />
+    <Compile Include="CommonVisitors\InferRelationShips.cs" />
+    <Compile Include="CommonVisitors\RelationshipQueryCreator.cs" />
+    <Compile Include="EntityEventArgs.cs" />
+    <Compile Include="IPersistenceEngine.cs" />
+    <Compile Include="IPersistenceEngineAsync.cs" />
+    <Compile Include="IPersistenceProvider.cs" />
+    <Compile Include="IPersistenceProviderAsync.cs" />
+    <Compile Include="NLinqVisitors\ExpressionWriter.cs" />
+    <Compile Include="NLinqVisitors\INLinqVisitor.cs" />
+    <Compile Include="NLinqVisitors\NLinqExpressionUpdater.cs" />
+    <Compile Include="NLinqVisitors\NLinqExpressionVisitor.cs" />
+    <Compile Include="PersistenceEngineAsyncImplementation.cs" />
+    <Compile Include="PersistenceProviderImplementation.cs" />
+    <Compile Include="PersistenceEngineImplementation.cs" />
+    <Compile Include="PersistenceProviderAsyncImplementation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyPersistenceEngine.cs" />
+    <Compile Include="ProxyPersistenceEngineAsync.cs" />
+    <Compile Include="ProxyPersistenceProvider.cs" />
+    <Compile Include="ProxyPersistenceProviderAsync.cs" />
+    <Compile Include="ReferenceEventArgs.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="UniversalStorageException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Commands\Evaluant.Uss.Commands - SL.csproj">
+      <Project>{1079BD90-3EE1-4EA6-96BF-05DF592B7602}</Project>
+      <Name>Evaluant.Uss.Commands - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Domain\Evaluant.Uss.Domain - SL.csproj">
+      <Project>{637448DB-230B-40F9-AB08-D721583F1B4B}</Project>
+      <Name>Evaluant.Uss.Domain - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Era\Evaluant.Uss.Era - SL.csproj">
+      <Project>{EA523435-06CC-4BA2-A0EA-E4C19B2B4D9C}</Project>
+      <Name>Evaluant.Uss.Era - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Metadata\Evaluant.Uss.MetaData - SL.csproj">
+      <Project>{AA40E267-A5E9-45A9-8F80-BE4F834834C5}</Project>
+      <Name>Evaluant.Uss.MetaData - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Model\Evaluant.Uss.Model - SL.csproj">
+      <Project>{67E1606E-8682-4FF8-BEDE-FA076E07F9FF}</Project>
+      <Name>Evaluant.Uss.Model - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Serializer\Evaluant.Uss.Serializer - SL.csproj">
+      <Project>{0846FA7E-3FF5-422D-BEB1-6E8495C410CD}</Project>
+      <Name>Evaluant.Uss.Serializer - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility - SL.csproj">
+      <Project>{90734E6C-82C2-45A4-B8B7-73DC76CCAA18}</Project>
+      <Name>Evaluant.Uss.Utility - SL</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <MergedOutDir>$(SolutionDir)Assemblies\SL\</MergedOutDir>
+  </PropertyGroup>
+  <Import Project="..\Portable.proj" />
+  <Import Project="..\ProvideMultiplatformVersions.proj" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild" Condition="'$(RunPostBuildEvent)'!='OnOutputUpdated' or '$(_AssemblyTimestampBeforeCompile)'!='$(_AssemblyTimestampAfterCompile)'">
+    <CallTarget Targets="BuildSLVersion" />
+  </Target>
+</Project>

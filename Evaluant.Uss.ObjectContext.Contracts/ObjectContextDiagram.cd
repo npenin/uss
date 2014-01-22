@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContextBase" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAIAIAKAAAAAAAAIAAAAAIAAAAACIAAGQ=</HashCode>
+      <FileName>IObjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContextTransactionalBase" Collapsed="true">
+    <Position X="4.5" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAACAAAAAAAAIAACEAAAAAAAAAAABgAAg=</HashCode>
+      <FileName>IObjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContextSyncBase" Collapsed="true">
+    <Position X="1.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAQAAAAAIAAAEAAAAIAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>IObjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContext" Collapsed="true">
+    <Position X="1.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IObjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IPersistenceEngineObjectContextAsync" Collapsed="true">
+    <Position X="4.25" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAgBAEAQAACBIAEAgAAgQCAAAAQAQAEAgAIQCDA=</HashCode>
+      <FileName>IObjectContextAsync.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContextAsync" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAoCAAAAAgAAAAAAAAAAAAIAAIAAAAAIABAQAAA=</HashCode>
+      <FileName>IObjectContextAsync.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IObjectContextWithTracking" Collapsed="true">
+    <Position X="7.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IObjectContextWithTracking.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.ObjectContext.Contracts.IPersistenceEngineObjectContext" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAABAEAQAAABIAEAAAAgACAABAQAQAEAgAIQCDA=</HashCode>
+      <FileName>IPersistenceEngineObjectContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

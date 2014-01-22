@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B1FAC5C-CA57-41D7-8625-DDD2D5EE6566}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.Remoting</RootNamespace>
+    <AssemblyName>Evaluant.Uss.Remoting</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteController.cs" />
+    <Compile Include="RemoteProvider.cs" />
+    <Compile Include="RemotingPersistenceEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.Configuration\Evaluant.Uss.Configuration.csproj">
+      <Project>{BBE00DAE-47B8-4587-9B04-6C73504DD674}</Project>
+      <Name>Evaluant.Uss.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Metadata\Evaluant.Uss.MetaData.csproj">
+      <Project>{AA40E267-A5E9-45A9-8F80-BE4F834834C5}</Project>
+      <Name>Evaluant.Uss.MetaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Model\Evaluant.Uss.Model.csproj">
+      <Project>{67E1606E-8682-4FF8-BEDE-FA076E07F9FF}</Project>
+      <Name>Evaluant.Uss.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.PersistenceEngine.Contracts\Evaluant.Uss.PersistenceEngine.Contracts.csproj">
+      <Project>{F29DF346-0EAF-4953-B955-36057C4EACC0}</Project>
+      <Name>Evaluant.Uss.PersistenceEngine.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility.csproj">
+      <Project>{F2311252-DC19-4E11-89CA-293628CEE68C}</Project>
+      <Name>Evaluant.Uss.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Commands\Evaluant.Uss.Commands.csproj">
+      <Project>{1079BD90-3EE1-4EA6-96BF-05DF592B7602}</Project>
+      <Name>Evaluant.Uss.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Domain\Evaluant.Uss.Domain.csproj">
+      <Project>{637448DB-230B-40F9-AB08-D721583F1B4B}</Project>
+      <Name>Evaluant.Uss.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLinq\NLinq\NLinq.csproj">
+      <Project>{05FF616B-289A-41AE-A746-ACFFA6825602}</Project>
+      <Name>NLinq</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="b8bc8a2a-fb5a-4dcb-9772-20e6da087978" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="538600b3-5344-415d-9fc9-b6a87c5c4046" name="Evaluant.Uss.PersistenceEngine.Contracts">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="58f5a55d-a6a6-4b6b-ad73-d3e5a5b88c61" direction="Forward">
+          <layerMoniker Id="2c80364e-f212-4479-8843-5870a45e2860" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7ee2f546-3d20-4b04-b92a-7a2a135ef902" direction="Forward">
+          <layerMoniker Id="3fe27d34-cc95-4595-8cd8-9eb311c753a5" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="368e01fd-0609-468b-9523-81039a66cd27" direction="Forward">
+          <layerMoniker Id="71ea459f-c193-4f26-942f-c3975330a03d" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c0c4208f-8de0-4464-9066-62dda9ad8a7e" direction="Forward">
+          <layerMoniker Id="545182f5-8440-4ac7-9be3-c3d0768575b5" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="5fb41658-3343-43f4-a4ad-3d99f28c1c0d" name="Evaluant.Uss.PersistenceEngine.Contracts">
+          <ArtifactNode Label="Evaluant.Uss.PersistenceEngine.Contracts" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.PersistenceEngine.Contracts/Evaluant.Uss.PersistenceEngine.Contracts.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.PersistenceEngine.Contracts)" Label="Evaluant.Uss.PersistenceEngine.Contracts.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="2c80364e-f212-4479-8843-5870a45e2860" name="Evaluant.Uss.Model">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="99f21386-acb3-4a7a-9a74-79a897b7440e" direction="Forward">
+          <layerMoniker Id="4b712219-03a4-4540-bdcb-f5ce392c8592" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="646a96cf-3fca-453e-a943-1bffce44b0d1" name="Evaluant.Uss.Model">
+          <ArtifactNode Label="Evaluant.Uss.Model" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Model/Evaluant.Uss.Model.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Model)" Label="Evaluant.Uss.Model.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="3fe27d34-cc95-4595-8cd8-9eb311c753a5" name="Evaluant.Uss.MetaData">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="cf2b66eb-1b17-4b17-986f-4bc87681149c" direction="Forward">
+          <layerMoniker Id="4b712219-03a4-4540-bdcb-f5ce392c8592" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="b14b2e2f-f2f5-4bc6-98ce-e81259acdd04" name="Evaluant.Uss.MetaData">
+          <ArtifactNode Label="Evaluant.Uss.MetaData" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Metadata/Evaluant.Uss.MetaData.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.MetaData)" Label="Evaluant.Uss.MetaData.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="71ea459f-c193-4f26-942f-c3975330a03d" name="NLinq">
+      <references>
+        <reference Id="2fdadd73-3a22-49a4-9705-7fe177344dcb" name="NLinq">
+          <ArtifactNode Label="NLinq" Category="CodeSchema_Project" Id="(Assembly=../NLinq/NLinq/NLinq.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.NLinq)" Label="Evaluant.NLinq.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4b712219-03a4-4540-bdcb-f5ce392c8592" name="Evaluant.Uss.Era">
+      <references>
+        <reference Id="d37ae5ef-f6a0-44ca-befd-cf8a55895d37" name="Evaluant.Uss.Era">
+          <ArtifactNode Label="Evaluant.Uss.Era" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Era/Evaluant.Uss.Era.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Era)" Label="Evaluant.Uss.Era.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="545182f5-8440-4ac7-9be3-c3d0768575b5" name="Evaluant.Uss.Domain">
+      <references>
+        <reference Id="29eae452-1edd-4a2b-a174-78897ba71efa" name="Evaluant.Uss.Domain">
+          <ArtifactNode Label="Evaluant.Uss.Domain" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Domain/Evaluant.Uss.Domain.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Domain)" Label="Evaluant.Uss.Domain.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

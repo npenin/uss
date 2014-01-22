@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <Entity type="Evaluant:Uss:Sync:Connection" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:Connection">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+    <Attribute name="ClientId" field="ClientId" db-type="String" size="50" scale="0" precision="0" not-null="false" />
+    <Attribute name="Number" field="Number" db-type="Int32" />
+    <Attribute name="Transaction" field="Transaction" db-type="Int32"  />
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:Info" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:Info">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+    <Attribute name="Transaction" field="Transaction" db-type="Int32"  />
+    <Attribute name="ClientId" field="ClientId" db-type="String" size="50" scale="0" precision="0" not-null="false" />
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:Command" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:Command">
+
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+    <Attribute name="ClientId" field="ClientId" db-type="String" size="50" />
+    <Attribute name="Processed" field="Processed" db-type="DateTime" />
+    <Attribute name="Transaction" field="Transaction" db-type="Int32" />
+    <Attribute name="Number" field="Number" db-type="Int32" />
+    <Attribute name="ParentId" field="ParentId" db-type="String" size="50" />
+    <Attribute name="ParentType" field="ParentType" db-type="String" size="50" />
+    <Attribute name="Role" field="Role" db-type="String" size="50" />
+    <Attribute name="ChildId" field="ChildId" db-type="String" size="50" />
+    <Attribute name="ChildType" field="ChildType" db-type="String" size="50" />
+    <Attribute name="Type" field="Type" db-type="String" size="50" />
+    <Attribute name="Name" field="Name" db-type="String" size="50" />
+    <Attribute name="Value" field="Value" db-type="String" size="255" />
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:CreateEntityCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:CreateEntityCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:DeleteEntityCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:DeleteEntityCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:CreateAttributeCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:CreateAttributeCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:DeleteAttributeCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:DeleteAttributeCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:UpdateAttributeCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:UpdateAttributeCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:CreateReferenceCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:CreateReferenceCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+  <Entity type="Evaluant:Uss:Sync:DeleteReferenceCommand" table="Metadata" discriminator-field="MetadataType" discriminator-value="Evaluant:Uss:Sync:DeleteReferenceCommand">
+    <Id field="MetadataId">
+      <Generator name="guid" />
+    </Id>
+  </Entity>
+</Mapping>

@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Evaluant.Uss.SqlExpressions.AliasedExpression" Collapsed="true">
+    <Position X="18.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AliasedExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.CaseExpression" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAIAAAAAAAAAAAAAAAAAAAAAAACAAAAIA=</HashCode>
+      <FileName>CaseExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.CaseTestExpression" Collapsed="true">
+    <Position X="47.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>CaseExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.FromClause" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="51.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAABAABBQDAAAAAQAAAAAAAAAAEAAAABQIAA=</HashCode>
+      <FileName>Clause\FromClause.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.ColumnExpression" Collapsed="true">
+    <Position X="30.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAAAABAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ColumnExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.ComplexColumnExpression" Collapsed="true">
+    <Position X="29.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ComplexColumnExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Constant" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="49.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAIA=</HashCode>
+      <FileName>Constant.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DbExpression" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>DbExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DbStatement" Collapsed="true">
+    <Position X="40.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DbStatement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DbUnaryExpression" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAIA=</HashCode>
+      <FileName>DbUnaryExpression.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.EntityExpression" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAIA=</HashCode>
+      <FileName>EntityExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Aggregate" Collapsed="true">
+    <Position X="20.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAEAAAAAQAACAAAAAAAAAAIAAAAIU=</HashCode>
+      <FileName>Functions\Aggregate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Cast" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAE=</HashCode>
+      <FileName>Functions\Cast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Exists" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAIE=</HashCode>
+      <FileName>Functions\Exists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Function" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIACAAAAAIE=</HashCode>
+      <FileName>Functions\Function.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.InPredicate" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAIE=</HashCode>
+      <FileName>Functions\InPredicate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.IsNull" Collapsed="true">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAE=</HashCode>
+      <FileName>Functions\IsNull.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Like" Collapsed="true">
+    <Position X="18.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Functions\Like.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.JoinedTableExpression" Collapsed="true">
+    <Position X="22.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAKA=</HashCode>
+      <FileName>JoinedTableExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Parameter" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAQAAAAAAAIA=</HashCode>
+      <FileName>Parameter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.CreateTableStatement" Collapsed="true">
+    <Position X="38.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgAAIg=</HashCode>
+      <FileName>Statements\CreateTableStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DeleteStatement" Collapsed="true">
+    <Position X="40.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>Statements\DeleteStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DropTableIfExistsStatement" Collapsed="true">
+    <Position X="43" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statements\DropTableIfExistsStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.DropTableStatement" Collapsed="true">
+    <Position X="43" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>Statements\DropTableStatement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.InsertStatement" Collapsed="true">
+    <Position X="45.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgQAAAAIg=</HashCode>
+      <FileName>Statements\InsertStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.SelectStatement" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAAAAAAAAAACAAAAAAAAAAAAAEIAAAAAAAAAAgAAIg=</HashCode>
+      <FileName>Statements\SelectStatement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.UpdateStatement" Collapsed="true">
+    <Position X="36.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAABAAAAAAAAAAAAAEAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>Statements\UpdateStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.TableAlias" Collapsed="true">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TableAlias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.TableExpression" Collapsed="true">
+    <Position X="25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>TableExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.TableSourceExpression" Collapsed="true">
+    <Position X="25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TableSourceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.ValuedParameter" Collapsed="true">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ValuedParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Visitors.DbExpressionUpdater" Collapsed="true">
+    <Position X="51.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbExpressionVisitors\DbExpressionUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Visitors.DbExpressionVisitor" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbExpressionVisitors\DbExpressionVisitor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Visitors.DbExpressionWriter" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAwAAAAQAAARAAAAAAIAAAAAAAAAAARAgBAAAEAA=</HashCode>
+      <FileName>DbExpressionVisitors\DBExpressionWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Visitors.LazyAliasResolver" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>DbExpressionVisitors\LazyAliasResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.KeyValuePairComparer&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="47.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>KeyValuePairComparer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Mapping.EntitySourceExpression" Collapsed="true">
+    <Position X="27.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Mapping\EntitySourceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Mapping.Field" Collapsed="true">
+    <Position X="31.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAIAQAAAAABAACAAAAAAAQAAMBA=</HashCode>
+      <FileName>Mapping\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Mapping.LazyTableAlias" Collapsed="true">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Mapping\LazyTableAlias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.SqlExpressions.Mapping.Table" Collapsed="true">
+    <Position X="51.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAQAAgAA=</HashCode>
+      <FileName>Mapping\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.NLinqImprovements.EntityIdentifier" Collapsed="true">
+    <Position X="49.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAAA=</HashCode>
+      <FileName>NLinqImprovements\EntityIdentifier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.NLinqImprovements.EntityReferenceExpression" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>NLinqImprovements\EntityReferenceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Evaluant.Uss.NLinqImprovements.MethodCall" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="49.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAIACAAAAAIA=</HashCode>
+      <FileName>NLinqImprovements\MethodCall.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Evaluant.Uss.NLinqImprovements.PropertyReferenceExpression" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIA=</HashCode>
+      <FileName>NLinqImprovements\PropertyReferenceExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Evaluant.Uss.SqlExpressions.IDbStatement" Collapsed="true">
+    <Position X="51.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DbStatement.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.SqlExpressions.IDbExpression" Collapsed="true">
+    <Position X="47.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>IDbExpression.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Evaluant.Uss.SqlExpressions.Visitors.IDbExpressionVisitor" Collapsed="true">
+    <Position X="49.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbExpressionVisitors\IDbExpressionVisitor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Evaluant.Uss.SqlExpressions.DbExpressionType" Collapsed="true">
+    <Position X="49.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>WYSAAsAEAAAQAAgAAABAQAIAAQEQAUAIAAAgQQEQgjA=</HashCode>
+      <FileName>DbExpressionType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Evaluant.Uss.SqlExpressions.DbUnaryExpressionType" Collapsed="true">
+    <Position X="51.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbExpressionType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Evaluant.Uss.SqlExpressions.AggregateFunctionType" Collapsed="true">
+    <Position X="47.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAEAAAAAQAAAAAAAAAAAAAIAAAABQ=</HashCode>
+      <FileName>Functions\Aggregate.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Evaluant.Uss.SqlExpressions.FunctionType" Collapsed="true">
+    <Position X="47.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAEBACA=</HashCode>
+      <FileName>Functions\Function.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Evaluant.Uss.SqlExpressions.JoinType" Collapsed="true">
+    <Position X="49.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAA=</HashCode>
+      <FileName>JoinedTableExpression.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

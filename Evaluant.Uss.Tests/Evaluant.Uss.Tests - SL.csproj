@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D3CDE77-6161-4287-9288-4461A2E87B7E}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.Tests</RootNamespace>
+    <AssemblyName>Evaluant.Uss.Tests - SL</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures />
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Evaluant.Uss.Tests.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Evaluant.Uss.Tests.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject />
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <!--
+  //
+  // Silverlight Code Coverage Instrumentation
+  // List any libraries or assemblies that you would like to instrument during
+  // a code coverage pass. An example, for ClassLibrary1, is provided, and
+  // commented out below as a starting point:
+  //
+  -->
+  <!--
+  <ItemGroup>
+    <InstrumentSilverlightAssemblies Include="SilverlightClassLibrary1">
+      <Visible>false</Visible>
+    </InstrumentSilverlightAssemblies>
+  </ItemGroup>
+  -->
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ANLP">
+      <HintPath>..\Assemblies\ANLP.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.ObjectContext.Contracts">
+      <HintPath>..\Assemblies\SL\Evaluant.Uss.ObjectContext.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Uss.PersistenceEngine.Contracts">
+      <HintPath>..\Assemblies\SL\Evaluant.Uss.PersistenceEngine.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Silverlight.Testing, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="NLinq">
+      <HintPath>..\Assemblies\NLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="NLinq.Memory">
+      <HintPath>..\Assemblies\NLinq.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Services.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AsyncEngineTest.cs" />
+    <Compile Include="AsyncWorkItem.cs" />
+    <Compile Include="Engines\Inheritance\AsyncEngineTest.cs" />
+    <Compile Include="Engines\RelationShips\AsyncRelationShips.cs" />
+    <Compile Include="Engines\_Implementations\AsyncODataTest.cs" />
+    <Compile Include="EventRunDispatcher.cs" />
+    <Compile Include="EventWorkItem.cs" />
+    <Compile Include="GeneratedCode\Address.cs" />
+    <Compile Include="GeneratedCode\Company.cs" />
+    <Compile Include="GeneratedCode\Person.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="ObjectContext\ObjectContextTestAsync.cs" />
+    <Compile Include="ObjectContext\Relationships\Model\Address.cs" />
+    <Compile Include="ObjectContext\Relationships\Model\Person.cs" />
+    <Compile Include="ObjectContext\Relationships\Model\Pet.cs" />
+    <Compile Include="ObjectContext\Relationships\Relationships.cs" />
+    <Compile Include="Properties\AssemblyInfo %282%29.cs" />
+    <Compile Include="Service References\DataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WebBrowserUnitTestHarness.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\DataService\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.DynamicProxy\Evaluant.Uss.EntityResolver.Proxy.Dynamic - SL.csproj">
+      <Project>{CA32E754-C64D-4CA8-9650-CA579FFEF36E}</Project>
+      <Name>Evaluant.Uss.EntityResolver.Proxy.Dynamic - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.EntityResolver.Proxy\Evaluant.Uss.EntityResolver.Proxy - SL.csproj">
+      <Project>{4D4BF5CC-E760-471E-B7C8-C4E65DBEC94D}</Project>
+      <Name>Evaluant.Uss.EntityResolver.Proxy - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Extensions\Evaluant.Uss.Extensions - SL.csproj">
+      <Project>{05B1C413-F400-4D19-9800-0B632C474C84}</Project>
+      <Name>Evaluant.Uss.Extensions - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Memory\Evaluant.Uss.Memory - SL.csproj">
+      <Project>{24750AA7-198A-4E92-9937-33296EC22B3A}</Project>
+      <Name>Evaluant.Uss.Memory - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.PersistentDescriptors\Evaluant.Uss.PersistentDescriptors - SL.csproj">
+      <Project>{C70E97A3-F54C-405F-9AEF-BC2525260D00}</Project>
+      <Name>Evaluant.Uss.PersistentDescriptors - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Serializer\Evaluant.Uss.Serializer - SL.csproj">
+      <Project>{0846FA7E-3FF5-422D-BEB1-6E8495C410CD}</Project>
+      <Name>Evaluant.Uss.Serializer - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Services\Evaluant.Uss.Services - SL.csproj">
+      <Project>{B5B67216-2878-447E-B0BF-EA579DC80EED}</Project>
+      <Name>Evaluant.Uss.Services - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.Utiliity\Evaluant.Uss.Utility - SL.csproj">
+      <Project>{90734E6C-82C2-45A4-B8B7-73DC76CCAA18}</Project>
+      <Name>Evaluant.Uss.Utility - SL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Evaluant.Uss.OData\Evaluant.Uss.OData - SL.csproj">
+      <Project>{E93B359D-AC7A-45BB-AD2A-C1D96F828EDB}</Project>
+      <Name>Evaluant.Uss.OData - SL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ObjectContext\Circular\" />
+    <Folder Include="ObjectContext\Detached\" />
+    <Folder Include="ObjectContext\Enumerations\" />
+    <Folder Include="ObjectContext\Nullable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\DataService\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\Reference.datasvcmap">
+      <Generator>DataServiceClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Import Condition="$(SilverlightVersion)=='v3.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v3.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <Import Condition="$(SilverlightVersion)=='v4.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v4.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

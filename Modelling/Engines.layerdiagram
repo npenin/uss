@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9f534d89-0616-40b8-b68d-88f123ab7fac" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="6b261fb4-2f94-499f-ab97-f4ba57a39d41" name="Evaluant.Uss.SqlMapper">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="7c214c0b-5b2d-4dd1-a114-be9d74671494" direction="Forward">
+          <layerMoniker Id="17431b3e-86d3-4949-a89d-2fdea00f2caf" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="1acadf85-4375-46e8-b518-567bb99ba230" direction="Forward">
+          <layerMoniker Id="4518b583-5ae4-4ae8-9c0a-20e2a75d35f1" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="d95fba60-2f97-420a-9c10-25926bc0a4c9" name="Evaluant.Uss.SqlMapper">
+          <ArtifactNode Label="Evaluant.Uss.SqlMapper" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.SqlMapper/Evaluant.Uss.SqlMapper.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.SqlMapper)" Label="Evaluant.Uss.SqlMapper.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="5d1a7c08-65a4-49be-9811-6a01578d8f39" name="Evaluant.Uss.Hub">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="1fbc6353-8d9d-40f3-b4af-d4a1c05a96d1" direction="Forward">
+          <layerMoniker Id="17431b3e-86d3-4949-a89d-2fdea00f2caf" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="cb3716d5-61a8-4fd7-bb20-5084e01af1ec" name="Evaluant.Uss.Hub">
+          <ArtifactNode Label="Evaluant.Uss.Hub" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Hub/Evaluant.Uss.Hub.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Hub)" Label="Evaluant.Uss.Hub.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="d1b6e9ac-7df8-40ef-91bd-ec61389edfd2" name="Evaluant.Uss.Memory">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="b3e24d32-422d-438f-bf9d-37dd97a995fe" direction="Forward">
+          <layerMoniker Id="17431b3e-86d3-4949-a89d-2fdea00f2caf" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="dbfef5f0-0daf-41bd-9217-0fb3b8f6eadd" name="Evaluant.Uss.Memory">
+          <ArtifactNode Label="Evaluant.Uss.Memory" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Memory/Evaluant.Uss.Memory.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Memory)" Label="Evaluant.Uss.Memory.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="0a513c3c-0864-4181-b204-5b9f54c088f2" name="Evaluant.Uss.MongoDB">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="767a7b65-d5a5-4303-8176-6f1b7e376bd2" direction="Forward">
+          <layerMoniker Id="17431b3e-86d3-4949-a89d-2fdea00f2caf" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="be32f673-3da0-446a-8036-42a4dc5d9661" name="Evaluant.Uss.MongoDB">
+          <ArtifactNode Label="Evaluant.Uss.MongoDB" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.MongoDB/Evaluant.Uss.MongoDB.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.MongoDB)" Label="Evaluant.Uss.MongoDB.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="17431b3e-86d3-4949-a89d-2fdea00f2caf" name="Evaluant.Uss.PersistenceEngine.Contracts">
+      <references>
+        <reference Id="9d6a69f9-1235-4ba9-af1d-43be2a156c03" name="Evaluant.Uss.PersistenceEngine.Contracts">
+          <ArtifactNode Label="Evaluant.Uss.PersistenceEngine.Contracts" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.PersistenceEngine.Contracts/Evaluant.Uss.PersistenceEngine.Contracts.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.PersistenceEngine.Contracts)" Label="Evaluant.Uss.PersistenceEngine.Contracts.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4518b583-5ae4-4ae8-9c0a-20e2a75d35f1" name="Evaluant.Uss.SqlExpressions">
+      <references>
+        <reference Id="dae2b702-e164-4b64-a939-4e498632f0e2" name="Evaluant.Uss.SqlExpressions">
+          <ArtifactNode Label="Evaluant.Uss.SqlExpressions" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.SqlExpressions/Evaluant.Uss.SqlExpressions.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.SqlExpressions)" Label="Evaluant.Uss.SqlExpressions.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

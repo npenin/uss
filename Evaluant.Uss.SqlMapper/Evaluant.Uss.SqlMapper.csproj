@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9177B239-87B6-44AE-8786-7C7204F2BACB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Evaluant.Uss.SqlMapper</RootNamespace>
+    <AssemblyName>Evaluant.Uss.SqlMapper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Evaluant.Uss.PersistenceEngine.Contracts">
+      <HintPath>..\Assemblies\Net\Evaluant.Uss.PersistenceEngine.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="NLinq">
+      <HintPath>..\Assemblies\NLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbExpressionVisitors\Analyzers\ReferenceAnalyzer.cs" />
+    <Compile Include="DbExpressionVisitors\FieldExtractionVisitor.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\AddParentIdToLoadedReference.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\AggregateMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\EntityToSelectMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\IdentifierToEntityMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\InheritanceEntityMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\AttributeToColumnMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\EntityToTableMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\ReferenceToColumnMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\SqlValidator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\StringOperations.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\ThisExpressionMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\ValueExpressionMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Optimizers\RemoveOrderByWhenCounting.cs" />
+    <Compile Include="DbExpressionVisitors\Optimizers\RemoveUselessColumnsIfNotNeeded.cs" />
+    <Compile Include="DbExpressionVisitors\Optimizers\RemoveUselessRootSelectIfPossible.cs" />
+    <Compile Include="DbExpressionVisitors\Optimizers\ToManyIsNotNull.cs" />
+    <Compile Include="DbExpressionVisitors\Sanitizers\EnsureStartsWithSelect.cs" />
+    <Compile Include="DbExpressionVisitors\Sanitizers\RowNumberSanitizer.cs" />
+    <Compile Include="Dialects\Dialect.cs" />
+    <Compile Include="Dialects\DialectProxy.cs" />
+    <Compile Include="Dialects\MySql.cs" />
+    <Compile Include="Dialects\Oracle.cs" />
+    <Compile Include="Dialects\SqlServer.cs" />
+    <Compile Include="Dialects\TraceDialect.cs" />
+    <Compile Include="Drivers\Driver.cs" />
+    <Compile Include="Drivers\File\Command.cs" />
+    <Compile Include="Drivers\File\Connection.cs" />
+    <Compile Include="Drivers\File\Transaction.cs" />
+    <Compile Include="Drivers\MySql.cs" />
+    <Compile Include="Drivers\OleDb.cs" />
+    <Compile Include="Drivers\Oracle.cs" />
+    <Compile Include="Drivers\Script.cs" />
+    <Compile Include="Drivers\SqlServer.cs" />
+    <Compile Include="ExpressionTransformer.cs" />
+    <Compile Include="HashSet.cs" />
+    <Compile Include="IDialect.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="KeyValuePairComparer.cs" />
+    <Compile Include="Mapper\CacheMapper.cs" />
+    <Compile Include="Mapper\DefaultMapper.cs" />
+    <Compile Include="Mapper\EraMapper.cs" />
+    <Compile Include="Mapper\IdMapperOption.cs" />
+    <Compile Include="Mapper\IMapper.cs" />
+    <Compile Include="Mapper\IMapperOption.cs" />
+    <Compile Include="Mapper\LazyParameter.cs" />
+    <Compile Include="Mapper\ProxyMapper.cs" />
+    <Compile Include="Mapper\StrategyMapperOption.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\DiscriminatorMutator.cs" />
+    <Compile Include="Mapping\MappingException.cs" />
+    <Compile Include="Mapping\Attribute.cs" />
+    <Compile Include="Mapping\CompositeReference.cs" />
+    <Compile Include="Mapping\Embed.cs" />
+    <Compile Include="Mapping\Entity.cs" />
+    <Compile Include="Mapping\Inheritance.cs" />
+    <Compile Include="Mapping\Mapping.cs" />
+    <Compile Include="Mapping\Reference.cs" />
+    <Compile Include="Mapping\Rule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlCommandProcessor.cs" />
+    <Compile Include="SqlMapperEngine.cs" />
+    <Compile Include="SqlMapperProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Uss.SqlExpressions\Evaluant.Uss.SqlExpressions.csproj">
+      <Project>{A16A1EE5-E9C7-4E3F-9A97-73D7457D105A}</Project>
+      <Name>Evaluant.Uss.SqlExpressions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapper\MapperOptions\Sample.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

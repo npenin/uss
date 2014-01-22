@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MappingOptions defaultStrategy="TablePerHierarchy" defaultSchema="dbo">
+  <Entity type="Sample.Person" strategy="TablePerConcreteClass">
+    <Attribute propertyName="PersonId" field="PersonId" isPrimaryKey="true" />
+  </Entity>
+</MappingOptions>

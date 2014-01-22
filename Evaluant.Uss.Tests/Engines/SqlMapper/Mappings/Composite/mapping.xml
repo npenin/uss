@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="Evaluant.Uss.Tests.Engines.SqlMapper.Mappings.Composite.Person" schema="Composite" table="Person">
+    <Attribute name="Id" field="Id" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="FirstName" field="firstName" db-type="AnsiString" size="50" nullable="true" />
+    <Attribute name="LastName" field="firstName" db-type="AnsiString" size="50" />
+    <Attribute name="Birthday" field="firstName" db-type="AnsiString" size="50" />
+    <Composite name="Address" type="Evaluant.Uss.Tests.Engines.SqlMapper.Mappings.Composite.Address" />
+  </Entity>
+
+  <Entity type="Evaluant.Uss.Tests.Engines.SqlMapper.Mappings.Composite.Address" schema="Composite" table="Person">
+    <Attribute name="Id" field="Id" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="Street" field="street" db-type="AnsiString" size="50" nullable="true" />
+    <Attribute name="City" field="city" db-type="AnsiString" size="50" />
+    <Attribute name="Zip" field="zip" db-type="AnsiString" size="5" nullable="true" />
+  </Entity>
+
+</Mapping>

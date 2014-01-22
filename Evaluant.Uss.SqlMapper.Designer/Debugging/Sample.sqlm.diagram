@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sqlMapperMappingDiagram dslVersion="1.0.0.0" Id="9f498d01-5dc5-4885-81a5-2014e65ba7b7" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <exampleModelMoniker Id="cffc7c8d-6c41-4fc7-9cbf-135b63290906" />
+  <nestedChildShapes>
+    <exampleShape Id="7fb28f33-6c86-4761-a4eb-f51437d651fc" absoluteBounds="0.5, 1.75, 2, 0.75">
+      <exampleElementMoniker name="/cffc7c8d-6c41-4fc7-9cbf-135b63290906/ExampleElement1" />
+    </exampleShape>
+    <exampleShape Id="812988f0-755a-4ecc-8d8f-2f9aaed499fe" absoluteBounds="3, 0.5, 2, 0.75">
+      <exampleElementMoniker name="/cffc7c8d-6c41-4fc7-9cbf-135b63290906/ExampleElement2" />
+    </exampleShape>
+    <exampleConnector Id="e418c363-90b1-4dc0-9666-19b0e3f1d5e5" edgePoints="[(1.5 : 1.75); (1.5 : 0.875); (3 : 0.875)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="b560b7ae-282f-4905-b7f6-c2994a32cac9">
+      <nodes>
+        <exampleShapeMoniker Id="7fb28f33-6c86-4761-a4eb-f51437d651fc" />
+        <exampleShapeMoniker Id="812988f0-755a-4ecc-8d8f-2f9aaed499fe" />
+      </nodes>
+    </exampleConnector>
+  </nestedChildShapes>
+</sqlMapperMappingDiagram>

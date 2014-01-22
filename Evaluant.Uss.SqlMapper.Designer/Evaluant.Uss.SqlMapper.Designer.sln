@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{F1CFDEA7-DB6D-4011-A9CE-9FC1DDBE01C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DslPackage", "DslPackage\DslPackage.csproj", "{0C8FC259-A032-4940-AB50-79884C546776}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C8FC259-A032-4940-AB50-79884C546776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8FC259-A032-4940-AB50-79884C546776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8FC259-A032-4940-AB50-79884C546776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8FC259-A032-4940-AB50-79884C546776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CFDEA7-DB6D-4011-A9CE-9FC1DDBE01C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CFDEA7-DB6D-4011-A9CE-9FC1DDBE01C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CFDEA7-DB6D-4011-A9CE-9FC1DDBE01C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CFDEA7-DB6D-4011-A9CE-9FC1DDBE01C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

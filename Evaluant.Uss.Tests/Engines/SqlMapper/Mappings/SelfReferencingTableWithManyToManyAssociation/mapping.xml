@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping xmlns="http://www.evaluant.com/euss/sqlMapper/mapping">
+  <Entity type="SelfReferencingTableWithManyToManyAssociation.MediaCategory" schema="SelfReferencingTableWithManyToManyAssociation" table="MediaCategory">
+    <Attribute name="CategoryId" field="CategoryId" db-type="Int32" primary-key="true" generator="native"/>
+    <Attribute name="Name" field="Name" db-type="AnsiString" size="50"/>
+    <Reference name="SubCategories">
+      <Rule parent-field="CategoryId" child-table="MediaCategory" child-field="ParentCategoryId" />
+    </Reference>
+    <Reference name="Medias">
+      <Rule parent-field="CategoryId" child-table="MediaInCategories" child-field="MediaCategoryId" />
+      <Rule pareant-field="MediaId" child-table="Media" child-field="MediaId" />
+    </Reference>
+  </Entity>
+
+  <Entity type="SelfReferencingTableWithManyToManyAssociation.Media" schema="SelfReferencingTableWithManyToManyAssociation" table="Media">
+    <Attribute name="MediaId" field="MediaId" db-type="Int32" primary-key="true" generator="native"/>
+    <Attribute name="Title" field="Title" db-type="AnsiString" size="50" />
+  </Entity>
+
+  <Entity type="SelfReferencingTableWithManyToManyAssociation.Article" schema="SelfReferencingTableWithManyToManyAssociation" table="Article">
+    <!-- 
+      We don't need to define the relationship between Ids as they are mapped to the same attributes.
+      If multiple Ids are defined, the couples are found using attribute names. e.g. MediaId is the 
+      attribute for this hierarchy, thus we can use this attribute to find the columns making the join.
+    -->
+    <Inheritance type="table-per-class" />
+    <Attribute name="MediaId" field="MediaId" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="ArticleContent" field="ArticleContent" db-type="AnsiString" size="0"/>
+    <!-- Other inherited attributes are not define, thus they will be take from the parent table -->
+  </Entity>
+
+  <Entity type="SelfReferencingTableWithManyToManyAssociation.Video" schema="SelfReferencingTableWithManyToManyAssociation" table="Video">
+    <Inheritance type="table-per-class" />
+    <Attribute name="MediaId" field="MediaId" db-type="Int32" primary-key="true" generator="native" />
+    <Attribute name="Rating" field="Rating" db-type="Int32" />
+    <!-- Other inherited attributes are not define, thus they will be take from the parent table -->
+  </Entity>
+
+</Mapping>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Evaluant.Uss.Tests.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EvaluantUssTestsStoreContainer">
+          <EntitySet Name="Address" EntityType="Evaluant.Uss.Tests.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Company" EntityType="Evaluant.Uss.Tests.Store.Company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Evaluant_Uss_Tests_Model_Person_Friends" EntityType="Evaluant.Uss.Tests.Store.Evaluant_Uss_Tests_Model_Person_Friends" store:Type="Tables" Schema="dbo" Table="Evaluant.Uss.Tests.Model.Person_Friends" />
+          <EntitySet Name="Person" EntityType="Evaluant.Uss.Tests.Store.Person" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="FK_AddressId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Evaluant_Uss_Tests_Model_Person_Friends">
+          <Key>
+            <PropertyRef Name="FK_ParentId" />
+            <PropertyRef Name="FK_ChildId" />
+          </Key>
+          <Property Name="FK_ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FK_ChildId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="33" />
+          <Property Name="FK_AddressId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FK_CompanyId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Evaluant.Uss.Tests.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="uss2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="Evaluant.Uss.Tests.Model.Address" />
+          <EntitySet Name="Company" EntityType="Evaluant.Uss.Tests.Model.Company" />
+          <EntitySet Name="Person" EntityType="Evaluant.Uss.Tests.Model.Person" />
+          <AssociationSet Name="AddressCompany" Association="Evaluant.Uss.Tests.Model.AddressCompany">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="AddressPerson" Association="Evaluant.Uss.Tests.Model.AddressPerson">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="PersonPerson" Association="Evaluant.Uss.Tests.Model.PersonPerson">
+            <End Role="Friends" EntitySet="Person" />
+            <End Role="Person1" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="CompanyEmployee" Association="Evaluant.Uss.Tests.Model.CompanyEmployee">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employee" EntitySet="Person" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Company" Relationship="Evaluant.Uss.Tests.Model.AddressCompany" FromRole="Address" ToRole="Company" />
+          <NavigationProperty Name="Person" Relationship="Evaluant.Uss.Tests.Model.AddressPerson" FromRole="Address" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FK_AddressId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Address" Relationship="Evaluant.Uss.Tests.Model.AddressCompany" FromRole="Company" ToRole="Address" />
+          <NavigationProperty Name="Employee" Relationship="Evaluant.Uss.Tests.Model.CompanyEmployee" FromRole="Company" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FK_AddressId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Address" Relationship="Evaluant.Uss.Tests.Model.AddressPerson" FromRole="Person" ToRole="Address" />
+          <NavigationProperty Name="Friends" Relationship="Evaluant.Uss.Tests.Model.PersonPerson" FromRole="Friends" ToRole="Person1" />
+        </EntityType>
+        <Association Name="AddressCompany">
+          <End Type="Evaluant.Uss.Tests.Model.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Evaluant.Uss.Tests.Model.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="FK_AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AddressPerson">
+          <End Type="Evaluant.Uss.Tests.Model.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Evaluant.Uss.Tests.Model.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="FK_AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonPerson">
+          <End Type="Evaluant.Uss.Tests.Model.Person" Role="Friends" Multiplicity="*" />
+          <End Type="Evaluant.Uss.Tests.Model.Person" Role="Person1" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Employee" BaseType="Evaluant.Uss.Tests.Model.Person" >
+          <NavigationProperty Name="Company" Relationship="Evaluant.Uss.Tests.Model.CompanyEmployee" FromRole="Employee" ToRole="Company" />
+          <Property Type="String" Name="FK_CompanyId" Nullable="false" />
+        </EntityType>
+        <Association Name="CompanyEmployee">
+          <End Type="Evaluant.Uss.Tests.Model.Company" Role="Company" Multiplicity="1" />
+          <End Type="Evaluant.Uss.Tests.Model.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="FK_CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EvaluantUssTestsStoreContainer" CdmEntityContainer="uss2Entities">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="Evaluant.Uss.Tests.Model.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="Evaluant.Uss.Tests.Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FK_AddressId" ColumnName="FK_AddressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="IsTypeOf(Evaluant.Uss.Tests.Model.Employee)">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="FK_AddressId" ColumnName="FK_AddressId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FK_CompanyId" ColumnName="FK_CompanyId" />
+                <Condition ColumnName="Type" Value="Evaluant.Uss.Employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="Evaluant.Uss.Tests.Model.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FK_AddressId" ColumnName="FK_AddressId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <Condition ColumnName="Type" Value="Evaluant.Uss.Tests.Model.Person" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PersonPerson" TypeName="Evaluant.Uss.Tests.Model.PersonPerson" StoreEntitySet="Evaluant_Uss_Tests_Model_Person_Friends" >
+            <EndProperty Name="Person1">
+              <ScalarProperty Name="Id" ColumnName="FK_ChildId" />
+            </EndProperty>
+            <EndProperty Name="Friends">
+              <ScalarProperty Name="Id" ColumnName="FK_ParentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Common">
+        <EntityTypeShape EntityType="Evaluant.Uss.Tests.Model.Address" Width="1.5" PointX="5" PointY="0.625" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Evaluant.Uss.Tests.Model.Company" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Evaluant.Uss.Tests.Model.Person" Width="1.5" PointX="5.25" PointY="3.25" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="Evaluant.Uss.Tests.Model.AddressCompany">
+          <ConnectorPoint PointX="5" PointY="1.5814925130208333" />
+          <ConnectorPoint PointX="4.25" PointY="1.5814925130208333" />
+        </AssociationConnector>
+        <AssociationConnector Association="Evaluant.Uss.Tests.Model.AddressPerson">
+          <ConnectorPoint PointX="5.875" PointY="2.4129850260416665" />
+          <ConnectorPoint PointX="5.875" PointY="3.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="Evaluant.Uss.Tests.Model.PersonPerson">
+          <ConnectorPoint PointX="6.75" PointY="3.8096293180534637" />
+          <ConnectorPoint PointX="7" PointY="3.8096293180534637" />
+          <ConnectorPoint PointX="7" PointY="4.3362939453125" />
+          <ConnectorPoint PointX="6.75" PointY="4.3362939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Evaluant.Uss.Tests.Model.Employee" Width="1.5" PointX="5.25" PointY="6" Height="1.4033821614583339" />
+        <InheritanceConnector EntityType="Evaluant.Uss.Tests.Model.Employee" >
+          <ConnectorPoint PointX="6" PointY="5.422587890625" />
+          <ConnectorPoint PointX="6" PointY="6" />
+        </InheritanceConnector>
+        <AssociationConnector Association="Evaluant.Uss.Tests.Model.CompanyEmployee">
+          <ConnectorPoint PointX="3.5" PointY="2.7302864583333335" />
+          <ConnectorPoint PointX="3.5" PointY="6.7016910807291667" />
+          <ConnectorPoint PointX="5.25" PointY="6.7016910807291667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

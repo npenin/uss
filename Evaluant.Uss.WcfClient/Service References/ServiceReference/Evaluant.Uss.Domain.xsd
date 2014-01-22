@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EntryOfNullableOfdouble5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfdouble5F2dSckg" nillable="true" type="tns:EntryOfNullableOfdouble5F2dSckg" />
+  <xs:complexType name="Entry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parent" nillable="true" type="tns:ArrayOfEntry" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Evaluant.Uss" minOccurs="0" name="State" type="q1:State" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Type" nillable="true" type="q2:Type" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entry" nillable="true" type="tns:Entry" />
+  <xs:complexType name="ArrayOfEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entry" nillable="true" type="tns:Entry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntry" nillable="true" type="tns:ArrayOfEntry" />
+  <xs:complexType name="EntryOfNullableOfunsignedLong5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="unsignedLong" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:unsignedLong" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfunsignedLong5F2dSckg" nillable="true" type="tns:EntryOfNullableOfunsignedLong5F2dSckg" />
+  <xs:complexType name="EntryOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfboolean" nillable="true" type="tns:EntryOfboolean" />
+  <xs:complexType name="EntryOfNullableOfboolean5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfboolean5F2dSckg" nillable="true" type="tns:EntryOfNullableOfboolean5F2dSckg" />
+  <xs:complexType name="EntryOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfstring" nillable="true" type="tns:EntryOfstring" />
+  <xs:complexType name="EntryOfguid">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="guid" Namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfguid" nillable="true" type="tns:EntryOfguid" />
+  <xs:complexType name="EntryOfbase64Binary">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="base64Binary" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfbase64Binary" nillable="true" type="tns:EntryOfbase64Binary" />
+  <xs:complexType name="EntryOfdouble">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="double" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfdouble" nillable="true" type="tns:EntryOfdouble" />
+  <xs:complexType name="EntryOffloat">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="float" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOffloat" nillable="true" type="tns:EntryOffloat" />
+  <xs:complexType name="EntryOfNullableOffloat5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="float" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOffloat5F2dSckg" nillable="true" type="tns:EntryOfNullableOffloat5F2dSckg" />
+  <xs:complexType name="EntryOfdecimal">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="decimal" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfdecimal" nillable="true" type="tns:EntryOfdecimal" />
+  <xs:complexType name="EntryOfNullableOfdecimal5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="decimal" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfdecimal5F2dSckg" nillable="true" type="tns:EntryOfNullableOfdecimal5F2dSckg" />
+  <xs:complexType name="EntryOfunsignedByte">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfunsignedByte" nillable="true" type="tns:EntryOfunsignedByte" />
+  <xs:complexType name="EntryOfNullableOfunsignedByte5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfunsignedByte5F2dSckg" nillable="true" type="tns:EntryOfNullableOfunsignedByte5F2dSckg" />
+  <xs:complexType name="EntryOfbyte">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="byte" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:byte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfbyte" nillable="true" type="tns:EntryOfbyte" />
+  <xs:complexType name="EntryOfNullableOfbyte5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="byte" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:byte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfbyte5F2dSckg" nillable="true" type="tns:EntryOfNullableOfbyte5F2dSckg" />
+  <xs:complexType name="ArrayOfArrayOfEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfEntry" nillable="true" type="tns:ArrayOfEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArrayOfEntry" nillable="true" type="tns:ArrayOfArrayOfEntry" />
+  <xs:complexType name="EntryOfshort">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="short" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfshort" nillable="true" type="tns:EntryOfshort" />
+  <xs:complexType name="EntryOfint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfint" nillable="true" type="tns:EntryOfint" />
+  <xs:complexType name="EntryOflong">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOflong" nillable="true" type="tns:EntryOflong" />
+  <xs:complexType name="EntryOfunsignedShort">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="unsignedShort" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:unsignedShort" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfunsignedShort" nillable="true" type="tns:EntryOfunsignedShort" />
+  <xs:complexType name="EntryOfunsignedInt">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="unsignedInt" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:unsignedInt" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfunsignedInt" nillable="true" type="tns:EntryOfunsignedInt" />
+  <xs:complexType name="EntryOfunsignedLong">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="unsignedLong" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" type="xs:unsignedLong" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfunsignedLong" nillable="true" type="tns:EntryOfunsignedLong" />
+  <xs:complexType name="EntryOfNullableOfshort5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="short" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfshort5F2dSckg" nillable="true" type="tns:EntryOfNullableOfshort5F2dSckg" />
+  <xs:complexType name="EntryOfNullableOfint5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfint5F2dSckg" nillable="true" type="tns:EntryOfNullableOfint5F2dSckg" />
+  <xs:complexType name="EntryOfNullableOflong5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="long" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOflong5F2dSckg" nillable="true" type="tns:EntryOfNullableOflong5F2dSckg" />
+  <xs:complexType name="EntryOfNullableOfunsignedShort5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="unsignedShort" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:unsignedShort" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfunsignedShort5F2dSckg" nillable="true" type="tns:EntryOfNullableOfunsignedShort5F2dSckg" />
+  <xs:complexType name="EntryOfNullableOfunsignedInt5F2dSckg">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntryOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Evaluant.Uss.Domain" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="unsignedInt" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TypedValue" nillable="true" type="xs:unsignedInt" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntryOfNullableOfunsignedInt5F2dSckg" nillable="true" type="tns:EntryOfNullableOfunsignedInt5F2dSckg" />
+</xs:schema>

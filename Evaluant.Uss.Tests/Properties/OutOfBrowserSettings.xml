@@ -1,0 +1,7 @@
+<OutOfBrowserSettings ShortName="Evaluant.Uss.Tests - SL Application" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>Evaluant.Uss.Tests - SL Application on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="Evaluant.Uss.Tests - SL Application" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons />
+</OutOfBrowserSettings>

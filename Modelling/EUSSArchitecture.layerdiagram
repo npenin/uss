@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="cb8d98ec-a2fd-4cbc-a24a-e1ed8c87f221" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="03f19bdc-a0c4-4b99-aa17-0869ba99eeec" name="ObjectContexts">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="e2768c8d-06cf-46b3-bc94-e2014008539f" direction="Bidirectional">
+          <layerMoniker Id="ad5c4eac-0b6e-462f-93fe-32831a9beb8e" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="41111bc0-de0b-4e8f-a36b-d876f29538a4" direction="Forward">
+          <layerMoniker Id="5b563fd8-f448-4a98-92c0-4d54b1c04384" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="685260fb-7018-4cd9-a6cb-1338d7b20f84" direction="Forward">
+          <layerMoniker Id="0969355e-cc16-41d6-ab42-4c9ce7b0b75f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="1664527f-ba5b-49e7-9d98-02330e1ecaf9" direction="Forward">
+          <layerMoniker Id="8784d876-9af7-46f7-9170-8dc516f625ad" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="dfeb5cd0-7416-484b-a82d-3edd45dd77b0" direction="Forward">
+          <layerMoniker Id="2b90fb46-1669-4a80-93fa-c0fb4d5fc529" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="8f723c0a-40d2-4a56-b53c-3150c88bdfe9" direction="Forward">
+          <layerMoniker Id="cb75044d-d48b-4849-9fec-2f2acb6beeaf" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="83f22f8e-e955-44f2-a7f7-1eea56aaaefe" name="Evaluant.Uss.EntityResolver.DynamicObject">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.DynamicObject" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.DynamicObject/Evaluant.Uss.EntityResolver.DynamicObject.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.DynamicObject)" Label="Evaluant.Uss.EntityResolver.DynamicObject.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="50ff76c8-d299-45f8-92a3-44ac89ca4844" name="Evaluant.Uss.EntityResolver.Proxy">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.Proxy/Evaluant.Uss.EntityResolver.Proxy.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy)" Label="Evaluant.Uss.EntityResolver.Proxy.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="a9d3fae0-ca22-412f-8fb3-c41c0c0d5129" name="Evaluant.Uss.EntityResolver.Proxy.Dynamic">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy.Dynamic" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.DynamicProxy/Evaluant.Uss.EntityResolver.Proxy.Dynamic.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Dynamic)" Label="Evaluant.Uss.EntityResolver.Proxy.Dynamic.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="0be7057b-16af-4258-b633-1ae02fcd6f55" name="Evaluant.Uss.EntityResolver.Proxy.Static">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy.Static" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.Proxy.Static/Evaluant.Uss.EntityResolver.Proxy.Static.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Static)" Label="Evaluant.Uss.EntityResolver.Proxy.Static.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="6ab63fbf-bf04-4312-b127-62dcc1029bdc" name="Evaluant.Uss.ObjectContext">
+          <ArtifactNode Label="Evaluant.Uss.ObjectContext" Category="CodeSchema_Namespace" Id="(Namespace=Evaluant.Uss.ObjectContext)" />
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.PersistenceEngine.Contracts)" Label="Evaluant.Uss.PersistenceEngine.Contracts.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.ObjectContext.Contracts)" Label="Evaluant.Uss.ObjectContext.Contracts.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=Evaluant.Uss.ObjectContext)" Label="Evaluant.Uss.ObjectContext" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="9201039a-e96b-4355-ac7a-96633cbd93bb" name="Evaluant.Uss.ObjectContext.Contracts">
+          <ArtifactNode Label="Evaluant.Uss.ObjectContext.Contracts" Category="CodeSchema_Namespace" Id="(Namespace=Evaluant.Uss.ObjectContext.Contracts)" />
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.PersistenceEngine.Contracts)" Label="Evaluant.Uss.PersistenceEngine.Contracts.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.ObjectContext.Contracts)" Label="Evaluant.Uss.ObjectContext.Contracts.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=Evaluant.Uss.ObjectContext.Contracts)" Label="Evaluant.Uss.ObjectContext.Contracts" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="5b563fd8-f448-4a98-92c0-4d54b1c04384" name="Metadata">
+      <references>
+        <reference Id="b2aac2d2-b227-42ca-8f8b-51862489da65" name="Evaluant.Uss.MetaData">
+          <ArtifactNode Label="Evaluant.Uss.MetaData" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Metadata/Evaluant.Uss.MetaData.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.MetaData)" Label="Evaluant.Uss.MetaData.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="943a5a8a-a626-4046-b0cc-9b4fbed87f47" name=".NET End user business model">
+      <comments>
+        <comment Id="e1659f6e-c313-4b6b-b089-1d24de532a20" name="Comment1">
+          <body>This business model may not have anything to do with EUSS.</body>
+          <layerElements>
+            <linkFromCommentToLayerElement>
+              <layerMoniker Id="03f19bdc-a0c4-4b99-aa17-0869ba99eeec" />
+            </linkFromCommentToLayerElement>
+          </layerElements>
+        </comment>
+      </comments>
+    </layer>
+    <layer Id="ad5c4eac-0b6e-462f-93fe-32831a9beb8e" name="Entity resolvers">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="42b98c66-2ef8-4c26-9dae-ad8b380ba1d7" direction="Forward">
+          <layerMoniker Id="5b563fd8-f448-4a98-92c0-4d54b1c04384" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7d336c56-e17e-4ed5-a519-038ff2c4a008" direction="Forward">
+          <layerMoniker Id="cb75044d-d48b-4849-9fec-2f2acb6beeaf" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="b8a785d1-2e3d-40c4-b2f7-c59da2713389" direction="Forward">
+          <layerMoniker Id="8784d876-9af7-46f7-9170-8dc516f625ad" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="29ebb48f-b809-4fe9-91ea-59bb34f4a7b8" name="Evaluant.Uss.EntityResolver.DynamicObject">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.DynamicObject" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.DynamicObject/Evaluant.Uss.EntityResolver.DynamicObject.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.DynamicObject)" Label="Evaluant.Uss.EntityResolver.DynamicObject.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="40616986-3b33-4a3f-b376-e7576e9e358d" name="Evaluant.Uss.EntityResolver.Proxy">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.Proxy/Evaluant.Uss.EntityResolver.Proxy.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy)" Label="Evaluant.Uss.EntityResolver.Proxy.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="bbbbc257-254e-44e2-909b-b44719d81f60" name="Evaluant.Uss.EntityResolver.Proxy.Dynamic">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy.Dynamic" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.DynamicProxy/Evaluant.Uss.EntityResolver.Proxy.Dynamic.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Dynamic)" Label="Evaluant.Uss.EntityResolver.Proxy.Dynamic.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="9d335a51-f86d-4ee7-9864-4b665653e2f2" name="Evaluant.Uss.EntityResolver.Proxy.Static">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver.Proxy.Static" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.EntityResolver.Proxy.Static/Evaluant.Uss.EntityResolver.Proxy.Static.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Static)" Label="Evaluant.Uss.EntityResolver.Proxy.Static.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="4ef4e84f-ea22-4ffb-8551-94c285a0f44f" name="Evaluant.Uss.EntityResolver">
+          <ArtifactNode Label="Evaluant.Uss.EntityResolver" Category="CodeSchema_Namespace" Id="(Namespace=Evaluant.Uss.EntityResolver)" />
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy)" Label="Evaluant.Uss.EntityResolver.Proxy.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Static)" Label="Evaluant.Uss.EntityResolver.Proxy.Static.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.Proxy.Dynamic)" Label="Evaluant.Uss.EntityResolver.Proxy.Dynamic.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.EntityResolver.DynamicObject)" Label="Evaluant.Uss.EntityResolver.DynamicObject.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.ObjectContext.Contracts)" Label="Evaluant.Uss.ObjectContext.Contracts.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=Evaluant.Uss.EntityResolver)" Label="Evaluant.Uss.EntityResolver" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="cb75044d-d48b-4849-9fec-2f2acb6beeaf" name="Persistence Engines">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="18874497-43a4-4ed0-858a-726cfc58821c" direction="Forward">
+          <layerMoniker Id="8784d876-9af7-46f7-9170-8dc516f625ad" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="e1f8fa5c-1a66-40bb-b80e-92ffe10ff4d5" direction="Forward">
+          <layerMoniker Id="2b90fb46-1669-4a80-93fa-c0fb4d5fc529" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="842b40c0-0271-41d0-b062-233971f4a70c" direction="Forward">
+          <layerMoniker Id="0969355e-cc16-41d6-ab42-4c9ce7b0b75f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="7199da63-55f1-4667-9f53-af6ea8e85f6c" direction="Forward">
+          <layerMoniker Id="5b563fd8-f448-4a98-92c0-4d54b1c04384" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="a50270d8-5b14-4d54-9723-5b5d7bc08ec4" name="Engines">
+          <ArtifactNode Label="Engines" Category="SolutionFolder" Id="(Assembly=../Engines)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Hub)" Label="Evaluant.Uss.Hub.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.SqlMapper)" Label="Evaluant.Uss.SqlMapper.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Sync)" Label="Evaluant.Uss.Sync.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Memory)" Label="Evaluant.Uss.Memory.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.MongoDB)" Label="Evaluant.Uss.MongoDB.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.WCFService)" Label="Evaluant.Uss.WCFService.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.WcfClient)" Label="Evaluant.Uss.WcfClient.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="2b90fb46-1669-4a80-93fa-c0fb4d5fc529" name="Commands">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3726f098-4aa8-4f6a-924c-394c2f2e6f08" direction="Forward">
+          <layerMoniker Id="8784d876-9af7-46f7-9170-8dc516f625ad" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="f522e25e-e611-4e64-a980-18c7a76c4e72" name="Evaluant.Uss.Commands">
+          <ArtifactNode Label="Evaluant.Uss.Commands" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Commands/Evaluant.Uss.Commands.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Commands)" Label="Evaluant.Uss.Commands.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="8784d876-9af7-46f7-9170-8dc516f625ad" name="Entity">
+      <references>
+        <reference Id="8c737036-7aba-492c-95f3-c9deb7a449e9" name="Evaluant.Uss.Domain">
+          <ArtifactNode Label="Evaluant.Uss.Domain" Category="CodeSchema_Project" Id="(Assembly=../Evaluant.Uss.Domain/Evaluant.Uss.Domain.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.Uss.Domain)" Label="Evaluant.Uss.Domain.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="0969355e-cc16-41d6-ab42-4c9ce7b0b75f" name="NLinq">
+      <references>
+        <reference Id="a6924484-8fcf-4328-8e47-230e3b122627" name="NLinq">
+          <ArtifactNode Label="NLinq" Category="CodeSchema_Project" Id="(Assembly=../NLinq/NLinq/NLinq.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Evaluant.NLinq)" Label="Evaluant.NLinq.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

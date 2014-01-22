@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?evaluant-application progid="EUSS.MetaData"?>
+<Model xmlns="http://euss.evaluant.com/schemas/MetaDataModel.xsd">
+
+  <Entity type="Evaluant:Uss:Sync:Info">
+    <Attribute name="ClientId" type="System.String"/>
+    <Attribute name="Transaction" type="System.Int32"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:Connection">
+    <Attribute name="ClientId" type="System.String"/>
+    <Attribute name="Transaction" type="System.Int32"/>
+    <Attribute name="Number" type="System.Int32"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:Command">
+    <Attribute name="ClientId" type="System.String"/>
+    <Attribute name="Processed" type="System.DateTime"/>
+    <Attribute name="Transaction" type="System.Int32"/>
+    <Attribute name="Number" type="System.Int32"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:CreateEntityCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="Type" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:DeleteEntityCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="Type" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:CreateAttributeCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="ParentType" type="System.String"/>
+    <Attribute name="Type" type="System.String"/>
+    <Attribute name="Name" type="System.String"/>
+    <Attribute name="Value" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:DeleteAttributeCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="ParentType" type="System.String"/>
+    <Attribute name="Type" type="System.String"/>
+    <Attribute name="Name" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:UpdateAttributeCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="ParentType" type="System.String"/>
+    <Attribute name="Type" type="System.String"/>
+    <Attribute name="Name" type="System.String"/>
+    <Attribute name="Value" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:CreateReferenceCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="ParentType" type="System.String"/>
+    <Attribute name="Role" type="System.String"/>
+    <Attribute name="ChildId" type="System.String"/>
+    <Attribute name="ChildType" type="System.String"/>
+  </Entity>
+
+  <Entity type="Evaluant:Uss:Sync:DeleteReferenceCommand" inherit="Evaluant:Uss:Sync:Command">
+    <Attribute name="ParentId" type="System.String"/>
+    <Attribute name="ParentType" type="System.String"/>
+    <Attribute name="Role" type="System.String"/>
+    <Attribute name="ChildId" type="System.String"/>
+    <Attribute name="ChildType" type="System.String"/>
+  </Entity>
+
+</Model>

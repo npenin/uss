@@ -1,0 +1,46 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SLPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.0\Profile\$(TargetFrameworkProfile)</SLPath>
+    <NETFwkPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319</NETFwkPath>
+    <MergedOutDir Condition="'$(MergedOutDir)'==''">$(ProjectDir)$(OutDir)</MergedOutDir>
+	<RunMerge Condition="'$(RunMerge)'==''">OnOutputUpdated</RunMerge>
+  </PropertyGroup>
+   <Target Name="BeforeCompile">
+        <PropertyGroup>
+            <AssemblyTimestampBeforeCompile>%(IntermediateAssembly.ModifiedTime)</AssemblyTimestampBeforeCompile>
+        </PropertyGroup>
+    </Target>
+    <Target Name="AfterCompile">
+        <PropertyGroup>
+            <AssemblyTimestampAfterCompile>%(IntermediateAssembly.ModifiedTime)</AssemblyTimestampAfterCompile>
+        </PropertyGroup>
+    </Target>
+
+  <Target Name="DefineSLProperties">
+    <PropertyGroup>
+      <FwkLibPath>$(SLPath)</FwkLibPath>
+      <Suffix>.dll</Suffix>
+    </PropertyGroup>
+  </Target>
+  <Target Name="DefineNetProperties">
+    <PropertyGroup>
+      <FwkLibPath>$(NetFwkPath)</FwkLibPath>
+      <Suffix>.dll</Suffix>
+    </PropertyGroup>
+  </Target>
+
+
+  <Target Name="BuildPlatformVersion" Condition="'$(RunMerge)'!='OnOutputUpdated' or '$(AssemblyTimestampBeforeCompile)'!='$(AssemblyTimestampAfterCompile)'">
+    <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='false' and '$(FwkLibPath)\.'!='%(RootDir)%(Directory).'">
+      <Output TaskParameter="Include" ItemName="libPaths" />
+    </CreateItem>
+    <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='true'">
+      <Output TaskParameter="Include" ItemName="IlmergeAssemblies" />
+    </CreateItem>
+    <Exec Command="&quot;$(ProjectDir)..\Dependencies\ILMerge\Ilmerge.exe&quot; /target:library /lib:&quot;$(FwkLibPath)&quot; @(libPaths->'&quot;/lib:%(RootDir)%(Directory).&quot;', ' ') &quot;/targetplatform:v2,$(FwkLibPath)&quot; &quot;/out:$(MergedOutDir)$(RootNamespace)$(Suffix)&quot; &quot;$(ProjectDir)@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')"/> <!-- &quot;/log:$(ProjectDir)ilmerge.log&quot;" /> -->
+    <Message Importance="High" Text="$(MSBuildProjectName) -&gt; $(RootNamespace)$(Suffix)" />
+  </Target>
+
+  <Target Name="BuildSLVersion" DependsOnTargets="DefineSLProperties;BuildPlatformVersion" />
+  <Target Name="BuildNetVersion" DependsOnTargets="DefineNetProperties;BuildPlatformVersion" />
+</Project>
