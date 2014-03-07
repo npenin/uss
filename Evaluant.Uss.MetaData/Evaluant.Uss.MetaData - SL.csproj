@@ -63,6 +63,15 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CloudBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CloudBuild\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v3.0\Libraries\Client\System.Xml.Serialization.dll</HintPath>

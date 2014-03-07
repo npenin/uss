@@ -20,7 +20,7 @@ namespace Evaluant.Uss.Cache
         {
             foreach (KeyValuePair<string, WeakReference> item in innerHash)
             {
-                if (item.Value.IsAlive != null)
+                if (item.Value.IsAlive)
                     yield return (Entity)item.Value.Target;
             }
         }

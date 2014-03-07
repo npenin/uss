@@ -429,7 +429,7 @@ namespace Evaluant.Uss.Model
 
         #region IEnumerable<Entity> Members
 
-        public IEnumerator<Entity> GetEnumerator()
+        public new IEnumerator<Entity> GetEnumerator()
         {
             return Entities.Values.GetEnumerator();
         }

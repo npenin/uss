@@ -138,6 +138,16 @@
   <PropertyGroup>
     <MergedOutDir>$(SolutionDir)Assemblies\SL\</MergedOutDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CloudBuild|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CloudBuild\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="..\Portable.proj" />
   <Import Project="..\ProvideMultiplatformVersions.proj" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
