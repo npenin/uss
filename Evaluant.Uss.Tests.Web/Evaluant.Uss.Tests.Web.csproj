@@ -14,7 +14,8 @@
     <RootNamespace>Evaluant.Uss.Tests.Web</RootNamespace>
     <AssemblyName>Evaluant.Uss.Tests.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <SilverlightApplicationList>{6D3CDE77-6161-4287-9288-4461A2E87B7E}|..\Evaluant.Uss.Tests\Evaluant.Uss.Tests - SL.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
