@@ -92,5 +92,36 @@ namespace Evaluant.Uss.SqlExpressions
             }
             return null;
         }
+
+        public IAliasedExpression Replace(TableAlias aliasToFind, TableAlias aliasToReplaceBy, out NLinq.Expressions.Expression constraint)
+        {
+            IAliasedExpression result;
+            var visitor= new Visitors.LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { aliasToFind, aliasToReplaceBy } });
+            if (LeftTable.Alias == aliasToFind)
+            {
+                constraint = visitor.Visit(On);
+                return visitor.Visit(RightTable);
+            }
+            if (RightTable.Alias == aliasToFind)
+            {
+                constraint = visitor.Visit(On);
+                return visitor.Visit(RightTable);
+            }
+            if (LeftTable is JoinedTableExpression && (result = ((JoinedTableExpression)LeftTable).Replace(aliasToFind, aliasToReplaceBy, out constraint)) != null)
+            {
+                LeftTable = result;
+                //LeftTable = (JoinedTableExpression)new Visitors.LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { aliasToFind, expressionReplacement.Alias } }).Visit(this);
+                return this;
+            }
+            if (RightTable is JoinedTableExpression && (result = ((JoinedTableExpression)RightTable).Replace(aliasToFind, aliasToReplaceBy, out constraint)) != null)
+            {
+                RightTable = result;
+                //RightTable = new Visitors.LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { aliasToFind, expressionReplacement.Alias } }).Visit(this);
+                return this;
+            }
+            constraint = null;
+            return null;
+        }
+
     }
 }

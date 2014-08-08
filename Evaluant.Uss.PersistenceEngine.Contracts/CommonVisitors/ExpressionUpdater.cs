@@ -46,7 +46,7 @@ namespace Evaluant.Uss.CommonVisitors
         {
             if (u.Expression != operand || u.Type != unaryExpressionType)
             {
-                return new UnaryExpression(u.Type, u.Expression);
+                return new UnaryExpression(unaryExpressionType, operand);
             }
             return u;
         }

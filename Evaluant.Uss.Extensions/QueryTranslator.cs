@@ -85,7 +85,7 @@ namespace Evaluant.Uss.Extensions
                 case ExpressionType.MemberInit:
                     break;
                 case ExpressionType.Negate:
-                    break;
+                    return Visit((System.Linq.Expressions.UnaryExpression)expression);
                 case ExpressionType.NegateChecked:
                     break;
                 case ExpressionType.New:
@@ -95,7 +95,7 @@ namespace Evaluant.Uss.Extensions
                 case ExpressionType.NewArrayInit:
                     break;
                 case ExpressionType.Not:
-                    break;
+                    return Visit((System.Linq.Expressions.UnaryExpression)expression);
                 case ExpressionType.Parameter:
                     return Visit((ParameterExpression)expression);
                 case ExpressionType.Quote:
@@ -269,6 +269,8 @@ namespace Evaluant.Uss.Extensions
                     case "Avg":
                     case "Sum":
                     case "Any":
+                        if (call.Arguments.Count > 1)
+                            clauses.Add(new WhereClause(Visit(call.Arguments[1])));
                         if (subExpression == null)
                             subExpression = new QueryExpression(from, new QueryBody(clauses, new SelectClause(identifiers["#First"]), null));
                         tree = new NLINQ.MemberExpression(new MethodCall(new Identifier(call.Method.Name)), subExpression);
@@ -353,6 +355,10 @@ namespace Evaluant.Uss.Extensions
 
         public NLinq.Expressions.Expression Visit(System.Linq.Expressions.UnaryExpression expression)
         {
+            if (expression.NodeType == ExpressionType.Not)
+                return new NLinq.Expressions.UnaryExpression(UnaryExpressionType.Not, Visit(expression.Operand));
+            if (expression.NodeType == ExpressionType.Negate)
+                return new NLinq.Expressions.UnaryExpression(UnaryExpressionType.Negate, Visit(expression.Operand));
             return Visit(expression.Operand);
         }
 

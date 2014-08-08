@@ -303,6 +303,16 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                     }
                     if (item.Identifier.Text == "Any")
                     {
+                        if (expression.Previous.ExpressionType != NLinq.Expressions.ExpressionTypes.Quote)
+                            return new Exists(new SelectStatement(
+                                new TableAlias(),
+                                new[] { new ComplexColumnExpression(
+                                    null,
+                                    new Constant(1, System.Data.DbType.Int32)) 
+                                },
+                                null,
+                                null,
+                                new NLinq.Expressions.WhereClause(Visit(expression.Previous))));
                         return new Exists(Visit(expression.Previous));
                     }
                     if (item.Identifier.Text == "Distinct")
@@ -398,6 +408,11 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
             return base.Visit(expression);
 
             //throw new NotSupportedException("There should be at least one previous");
+        }
+
+        public override NLinq.Expressions.Expression Visit(NLinq.Expressions.UnaryExpression item)
+        {
+            return new Not((IDbExpression)base.Visit(item.Expression));
         }
 
         public override Evaluant.NLinq.Expressions.Expression Visit(Evaluant.NLinq.Expressions.QueryExpression expression)

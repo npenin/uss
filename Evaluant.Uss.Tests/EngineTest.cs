@@ -303,6 +303,10 @@ namespace Evaluant.Uss.Tests
             var personCities = c.Cast<Employee>();
             Assert.IsTrue(personCities.Any());
             Assert.IsTrue(personCities.Any(p => p.Friends.Any()));
+            Assert.IsTrue(personCities.Any(p => p.FirstName == "Bob" && p.Friends.Any()));
+            Assert.IsFalse(personCities.Any(p => p.FirstName == "Bob" && !p.Friends.Any()));
+            Assert.IsTrue(personCities.Any(p => p.FirstName == "John" && !p.Friends.Any()));
+            Assert.IsFalse(personCities.Any(p => p.FirstName == "John" && p.Friends.Any()));
         }
     }
 }

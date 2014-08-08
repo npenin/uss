@@ -21,7 +21,7 @@
     </SccProvider>
     <FileUpgradeFlags>40</FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <UpgradeBackupLocation>I:\Skydrive\Developpement\euss\Dev\Backup12\</UpgradeBackupLocation>
+    <UpgradeBackupLocation>D:\Nicolas\Dev\euss\Backup\Evaluant.Uss.EntityResolver.DynamicProxy\</UpgradeBackupLocation>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>

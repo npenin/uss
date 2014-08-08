@@ -19,10 +19,22 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
             AliasesMapping = new Dictionary<TableAlias, TableAlias>();
             bool wasInFrom = inFrom;
             inFrom = false;
+            var oldConstraint = constraint;
             IAliasedExpression select = base.Visit(item);
             inFrom = wasInFrom;
             if (select is SelectStatement)
-                select = updater.Update(((SelectStatement)select), ((SelectStatement)select).Columns, currentFrom, ((SelectStatement)select).Where, ((SelectStatement)select).OrderBy, ((SelectStatement)select).Alias);
+            {
+                SelectStatement sel = (SelectStatement)select;
+                if (constraint != null)
+                {
+                    if (sel.Where == null || sel.Where.Expression == null)
+                        sel.Where = new NLinq.Expressions.WhereClause(constraint);
+                    else
+                        sel.Where = new NLinq.Expressions.WhereClause(new NLinq.Expressions.BinaryExpression(NLinq.Expressions.BinaryExpressionType.And, sel.Where.Expression, constraint));
+                    constraint = oldConstraint;
+                }
+                select = updater.Update(sel, sel.Columns, currentFrom, sel.Where, sel.OrderBy, sel.Alias);
+            }
             select = new LazyAliasResolver(AliasesMapping).Visit(select);
             loadedReferences = oldLoadedReferences;
             AliasesMapping = oldAliasesMapping;
@@ -75,6 +87,8 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
             //Evaluant.NLinq.Expressions.Expression exp = Visit(expression.Expression);
             //if (exp == null)
             //    return null;
+            if (constraint != null)
+                return updater.Update((NLinq.Expressions.WhereClause)base.Visit(expression), new NLinq.Expressions.BinaryExpression(NLinq.Expressions.BinaryExpressionType.And, expression.Expression, constraint));
             return base.Visit(expression);
         }
 
@@ -123,8 +137,6 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
 
         TableAlias currentAlias;
 
-
-
         public override NLinq.Expressions.Expression Visit(NLinq.Expressions.MemberExpression item)
         {
             NLinq.Expressions.Expression target = Visit(item.Previous);
@@ -151,34 +163,55 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
                     //If this is not a reference leave the treatment to another visitor
                     if (currentEntity != null && currentEntity.References.ContainsKey(propertyName))
                     {
+                        bool exists = currentFrom == null;
                         Mapping.Reference reference = currentEntity.References[propertyName];
                         if (!loadedReferences.ContainsKey(referencePath.ToString()))
                         {
                             currentEntity = reference.Target;
-                                TableAlias newTableAlias;
-                                //New target to reduce the already processed tree
-                                target = (NLinq.Expressions.Expression)mapping.Mapper.Join(reference, out newTableAlias);
-                                if (reference.IsComposite || loadedReferences.ContainsKey(targetReferencePath))
-                                {
-                                    target = new LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { newTableAlias, currentAlias } }).Visit(target);
-                                    newTableAlias = currentAlias;
-                                    //AliasesMapping[loadedReferences[targetReferencePath]] = target.Alias;
-                                }
+                            TableAlias newTableAlias;
+                            //New target to reduce the already processed tree
+                            target = (NLinq.Expressions.Expression)mapping.Mapper.Join(reference, out newTableAlias);
+                            if (reference.IsComposite || loadedReferences.ContainsKey(targetReferencePath))
+                            {
+                                target = new LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { newTableAlias, currentAlias } }).Visit(target);
+                                newTableAlias = currentAlias;
+                                //AliasesMapping[loadedReferences[targetReferencePath]] = target.Alias;
+                            }
 
-                                //Add JoinedTableExpression to load reference in query
+
+                            //Add JoinedTableExpression to load reference in query
+                            if (!exists)
                                 target = ((JoinedTableExpression)target).Replace(newTableAlias, currentFrom[0]);
-                                //if (target == null)
-                                //    throw new NotSupportedException("The alias specified could not be found");
-                                if (loadedReferences.ContainsKey(targetReferencePath))
-                                    target = new LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { loadedReferences[targetReferencePath], newTableAlias } }).Visit(target);
-                                currentFrom = new FromClause((IAliasedExpression)target);
-                                lastAliasDefined = ((JoinedTableExpression)target).RightTable.Alias;
-                                loadedReferences.Add(referencePath.ToString(), lastAliasDefined);
+                            else
+                            {
+                                //Case of Exists in where clause
+                                Evaluant.NLinq.Expressions.Expression constraint;
+                                target = (NLinq.Expressions.Expression)((JoinedTableExpression)target).Replace(newTableAlias, loadedReferences[targetReferencePath], out constraint);
+
+                                if (this.constraint == null)
+                                    this.constraint = constraint;
+                                else
+                                    this.constraint = new NLinq.Expressions.BinaryExpression(NLinq.Expressions.BinaryExpressionType.And, this.constraint, constraint);
+                            }
+
+                            //if (target == null)
+                            //    throw new NotSupportedException("The alias specified could not be found");
+                            if (loadedReferences.ContainsKey(targetReferencePath))
+                                target = new LazyAliasResolver(new Dictionary<TableAlias, TableAlias>() { { loadedReferences[targetReferencePath], newTableAlias } }).Visit(target);
+                            currentFrom = new FromClause((IAliasedExpression)target);
+                            lastAliasDefined = ((JoinedTableExpression)target).RightTable.Alias;
+                            loadedReferences.Add(referencePath.ToString(), lastAliasDefined);
                         }
                         else
                         {
                             if (!inFrom)
                                 lastAliasDefined = loadedReferences[referencePath.ToString()];
+                        }
+                        if (exists)
+                        {
+                            var constraint = this.constraint;
+                            this.constraint = null;
+                            return constraint;
                         }
                         return new EntityExpression(lastAliasDefined) { Type = reference.Target.Type };
                     }
@@ -215,6 +248,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
         }
 
         private FromClause currentFrom;
+        private NLinq.Expressions.Expression constraint;
 
         public override IDbExpression Visit(EntityExpression item)
         {
