@@ -25,7 +25,7 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
             return item;
         }
 
-        public override Function Visit(Functions.Exec item)
+        public override IAliasedExpression Visit(Functions.Exec item)
         {
             writer.Write(item.MethodName);
             writer.Write("('");
@@ -150,11 +150,40 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
             return VisitFunctionPostFixed(item);
         }
 
+        public override IAliasedExpression Visit(Functions.Lower item)
+        {
+            return VisitFunctionPostFixed(item);
+        }
+
+        public override IAliasedExpression Visit(Functions.Upper item)
+        {
+            return VisitFunctionPostFixed(item);
+
+        }
+
+        public override IAliasedExpression Visit(Functions.DatePart item)
+        {
+            return VisitFunctionPostFixed(item);
+        }
+
+        public override IAliasedExpression Visit(Functions.DateAdd item)
+        {
+            return VisitFunctionPostFixed(item);
+        }
+
         protected virtual IAliasedExpression VisitFunctionPostFixed(Function item)
         {
             writer.Write(item.MethodName.Text);
             writer.Write('(');
-            VisitArray(item.Parameters, Visit);
+            var isFirst = true;
+            foreach(var param in item.Parameters)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    writer.Write(", ");
+                Visit(param);
+            }
             writer.Write(')');
             return item;
         }
@@ -418,6 +447,11 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                 case System.Data.DbType.String:
                 case System.Data.DbType.StringFixedLength:
                 case System.Data.DbType.Xml:
+                case System.Data.DbType.Date:
+                case System.Data.DbType.DateTime:
+                case System.Data.DbType.DateTime2:
+                case System.Data.DbType.DateTimeOffset:
+                case System.Data.DbType.Time:
                     writer.Write("'");
                     writer.Write(item.Value);
                     writer.Write("'");
@@ -427,13 +461,6 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                 case System.Data.DbType.Boolean:
                     break;
                 case System.Data.DbType.Byte:
-                    break;
-                case System.Data.DbType.Date:
-                case System.Data.DbType.DateTime:
-                case System.Data.DbType.DateTime2:
-                case System.Data.DbType.DateTimeOffset:
-                case System.Data.DbType.Time:
-                    writer.Write(item.Value);
                     break;
                 case System.Data.DbType.Currency:
                     writer.Write(item.Value);

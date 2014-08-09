@@ -75,7 +75,7 @@ namespace Evaluant.Uss.SqlMapper.Drivers
             if (type == typeof(byte))
                 return DbType.Byte;
             if (type == typeof(DateTime))
-                return DbType.DateTime;
+                return DbType.DateTime2;
             if (type == typeof(decimal))
                 return DbType.Decimal;
             if (type == typeof(double))
@@ -112,6 +112,8 @@ namespace Evaluant.Uss.SqlMapper.Drivers
             field.DbType = GetDbType(attribute.Type);
             if (field.DbType == DbType.String)
                 field.Size = 50;
+            if (attribute.Type==typeof(string) || attribute.Type.IsGenericType && attribute.Type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                field.IsNullable = true;
             if (field.IsId)
             {
                 switch (field.DbType)

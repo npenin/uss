@@ -86,6 +86,7 @@
     <Compile Include="DbExpressionVisitors\FieldExtractionVisitor.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\AddParentIdToLoadedReference.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\AggregateMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\DateOperations.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\EntityToSelectMutator.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\IdentifierToEntityMutator.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\MappingMutators\InheritanceEntityMutator.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="DbExpressionVisitors\Optimizers\ToManyIsNotNull.cs" />
     <Compile Include="DbExpressionVisitors\Sanitizers\EnsureStartsWithSelect.cs" />
     <Compile Include="DbExpressionVisitors\Sanitizers\RowNumberSanitizer.cs" />
+    <Compile Include="DbExpressionVisitors\TypeFinderVisitor.cs" />
     <Compile Include="Dialects\Dialect.cs" />
     <Compile Include="Dialects\DialectProxy.cs" />
     <Compile Include="Dialects\MySql.cs" />

@@ -120,6 +120,30 @@ namespace Evaluant.Uss.Tests
 
             Assert.AreEqual(2, (from Person p in c where p.FirstName.StartsWith("Sco") select p).Count());
             Assert.AreEqual(2, (from Person p in c where p.FirstName.EndsWith("ott") select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.FirstName.Contains("ott") select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.FirstName.ToLower() == "scott" select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.FirstName.ToUpper() == "SCOTT" select p).Count());
+        }
+
+        [TestMethod]
+        public virtual void TestDateTimeOperations()
+        {
+            IObjectContext c = GetContext();
+            if (c == null)
+                return;
+            c.InitializeRepository();
+            c.BeginTransaction();
+            c.Serialize(new Employee() { BirthDate = new DateTime(1984, 10, 17), FirstName = "Scott", LastName = "Hanselmann", Friends = { new Employee() { BirthDate = new DateTime(1984, 6, 30), FirstName = "Scott", LastName = "Guthrie" } } });
+            c.CommitTransaction();
+
+            Assert.AreEqual(2, (from Person p in c where p.BirthDate.Value.Year == 1984 select p).Count());
+            Assert.AreEqual(1, (from Person p in c where p.BirthDate.Value.Month == 10 select p).Count());
+            Assert.AreEqual(1, (from Person p in c where p.BirthDate.Value.Day < 20 select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.BirthDate.Value.Hour < 10 select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.BirthDate.Value.Minute == 0 select p).Count());
+            Assert.AreEqual(2, (from Person p in c where p.BirthDate.Value.Second == 0 select p).Count());
+            Assert.AreEqual(1, (from Person p in c where p.BirthDate.Value.AddYears(30) < DateTime.Now select p).Count());
+            Assert.AreEqual(1, (from Person p in c where p.BirthDate.Value.AddYears(30) < DateTime.Today select p).Count());
         }
 
         private IObjectContext context;
@@ -275,7 +299,7 @@ namespace Evaluant.Uss.Tests
                 return;
             c.InitializeRepository();
             c.BeginTransaction();
-            c.Serialize(new Employee() { FirstName = "Bob", Friends = { new Employee() { FirstName = "John", Address = new Address() { City = "Strasbourg" } } }, Address = new Address() { City = "Mulhouse" } });
+            c.Serialize(new Employee() { BirthDate = new DateTime(1984, 10, 17), FirstName = "Bob", Friends = { new Employee() { FirstName = "John", Address = new Address() { City = "Strasbourg" } } }, Address = new Address() { City = "Mulhouse" } });
             c.CommitTransaction();
 
             var personCities = c.Cast<Employee>().Select(e => new { FullName = e.FirstName, City = e.Address.City }).ToList();
@@ -287,6 +311,7 @@ namespace Evaluant.Uss.Tests
 
             Assert.AreEqual("Mulhouse", c.Cast<Employee>().Select(e => new { FullName = e.FirstName, City = e.Address.City }).Where(e => e.FullName == "Bob").FirstOrDefault().City);
             Assert.AreEqual("Strasbourg", c.Cast<Employee>().Select(e => new { FullName = e.FirstName, City = e.Address.City }).Where(e => e.FullName == "John").FirstOrDefault().City);
+            Assert.AreEqual("Mulhouse", c.Cast<Employee>().Select(e => new { BirthDate = e.BirthDate, FullName = e.FirstName, City = e.Address.City }).Where(e => e.BirthDate.Value.Year == 1984).FirstOrDefault().City);
         }
 
         [TestMethod]
@@ -301,12 +326,15 @@ namespace Evaluant.Uss.Tests
             c.CommitTransaction();
 
             var personCities = c.Cast<Employee>();
+            Assert.IsTrue(personCities.Any(p => p.Friends.Any(f => f.Address.City == "Strasbourg")));
             Assert.IsTrue(personCities.Any());
             Assert.IsTrue(personCities.Any(p => p.Friends.Any()));
             Assert.IsTrue(personCities.Any(p => p.FirstName == "Bob" && p.Friends.Any()));
             Assert.IsFalse(personCities.Any(p => p.FirstName == "Bob" && !p.Friends.Any()));
             Assert.IsTrue(personCities.Any(p => p.FirstName == "John" && !p.Friends.Any()));
             Assert.IsFalse(personCities.Any(p => p.FirstName == "John" && p.Friends.Any()));
+            Assert.IsTrue(personCities.Where(p => p.Address.City == "Mulhouse").Any(p => p.Friends.Any()));
+            Assert.IsFalse(personCities.Where(p => p.Address.City == "Strasbourg").Any(p => p.Friends.Any()));
         }
     }
 }

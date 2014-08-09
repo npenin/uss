@@ -20,6 +20,8 @@ namespace Evaluant.Uss.Tests.Model
 
         public virtual Address Address { get; set; }
 
+        public virtual DateTime? BirthDate { get; set; }
+
         public IList<Person> Friends { get; set; }
 
         public IList<Car> Cars { get; set; }

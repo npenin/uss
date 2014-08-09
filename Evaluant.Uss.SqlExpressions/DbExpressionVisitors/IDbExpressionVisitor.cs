@@ -52,7 +52,11 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
         IVisitor<AlterTableAddStatement>,
         IVisitor<HardCodedExpression, IDbExpression>,
         IVisitor<Not, IAliasedExpression>,
-        IVisitor<Exec, Function>
+        IVisitor<Exec, IAliasedExpression>,
+        IVisitor<Lower, IAliasedExpression>,
+        IVisitor<Upper, IAliasedExpression>,
+        IVisitor<DatePart, IAliasedExpression>,
+        IVisitor<DateAdd, IAliasedExpression>
     {
     }
 }

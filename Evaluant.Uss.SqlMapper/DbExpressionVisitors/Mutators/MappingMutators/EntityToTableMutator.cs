@@ -10,10 +10,12 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
     public class EntityToTableMutator : DbExpressionVisitor
     {
         Mapping.Mapping mapping;
+        IDriver driver;
 
-        public EntityToTableMutator(Mapping.Mapping mapping)
+        public EntityToTableMutator(Mapping.Mapping mapping, IDriver driver)
         {
             this.mapping = mapping;
+            this.driver = driver;
         }
 
         bool visitingSelect = false;
@@ -83,7 +85,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
                 item.CaseTests = mapping.Mapper.TestCases((string)((Constant)item.DefaultResult).Value, item.Alias);
             }
 
-            item = (CaseExpression)new ValueExpressionMutator().Visit(item);
+            item = (CaseExpression)new ValueExpressionMutator(driver).Visit(item);
             return base.Visit(item);
         }
     }

@@ -21,7 +21,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Optimizers
                     n++;
                     lastColumn = column;
                 }
-                if (n == 1 && (lastColumn.DbExpressionType == SqlExpressions.DbExpressionType.Aggregate ||lastColumn.DbExpressionType==DbExpressionType.Function))
+                if (n == 1 && (lastColumn.DbExpressionType == SqlExpressions.DbExpressionType.Aggregate || lastColumn.DbExpressionType == DbExpressionType.Function || lastColumn.DbExpressionType == DbExpressionType.Column && ((ColumnExpression)lastColumn).Alias == null))
                 {
                     inSelect = true;
                     if (item.Where != null || item.From.Count != 1 || item.From[0].DbExpressionType != DbExpressionType.Select || ((SelectStatement)item.From[0]).Top > 0)

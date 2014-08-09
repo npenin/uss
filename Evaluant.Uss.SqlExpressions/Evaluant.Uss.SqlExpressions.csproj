@@ -89,8 +89,10 @@
     <Compile Include="DbExpressionVisitors\LazyAliasResolver.cs" />
     <Compile Include="DbUnaryExpression.cs" />
     <Compile Include="FluentDbExpression.cs" />
+    <Compile Include="Functions\DateOperations.cs" />
     <Compile Include="Functions\Exec.cs" />
     <Compile Include="Functions\RowNumber.cs" />
+    <Compile Include="Functions\StringOperations.cs" />
     <Compile Include="Functions\WindowFunction.cs" />
     <Compile Include="HardCodedExpression.cs" />
     <Compile Include="IAliasedExpression.cs" />

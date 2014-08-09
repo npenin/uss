@@ -66,7 +66,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
         {
             if (expression.Previous != null)
             {
-                if (expression.Statement is Evaluant.NLinq.Expressions.Identifier)
+                if (expression.Statement.ExpressionType == NLinq.Expressions.ExpressionTypes.Identifier)
                 {
                     var previous = expression.Previous;
                     previous = Visit(previous);
@@ -74,6 +74,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                     //    return updater.Update(expression, new EntityReferenceExpression(((EntityIdentifier)previous).Entity), expression.Statement);
                     return updater.Update(expression, previous, expression.Statement);
                 }
+
                 return updater.Update(expression, Visit(expression.Previous), Visit(expression.Statement));
             }
             return Visit(expression.Statement);

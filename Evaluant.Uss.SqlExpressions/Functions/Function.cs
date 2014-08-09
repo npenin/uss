@@ -54,6 +54,10 @@ namespace Evaluant.Uss.SqlExpressions
         Like,
         RowNumber,
         Not,
-        Exec
+        Exec,
+        Lower,
+        Upper,
+        DatePart,
+        DateAdd,
     }
 }

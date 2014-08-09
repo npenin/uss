@@ -126,8 +126,14 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
             inWhere = wasInWhere;
             visitingColumns = true;
             //IEnumerable<AliasedExpression> columns = VisitEnumerable(item.Columns, Visit);
-            List<IAliasedExpression> columns = new List<IAliasedExpression>(VisitEnumerable(item.Columns, Visit));
-            if (columns.Count >= 2 && columns[1].DbExpressionType == DbExpressionType.Column && ((ColumnExpression)columns[1]).ColumnName == ColumnExpression.AllColumns 
+            List<IAliasedExpression> columns;
+            if (item.Columns == null)
+                columns = new List<IAliasedExpression>(){ new ComplexColumnExpression(
+                                    null,
+                                    new Constant(1, System.Data.DbType.Int32))};
+            else
+                columns = new List<IAliasedExpression>(VisitEnumerable(item.Columns, Visit));
+            if (columns.Count >= 2 && columns[1].DbExpressionType == DbExpressionType.Column && ((ColumnExpression)columns[1]).ColumnName == ColumnExpression.AllColumns
              || columns.Count == 1 && columns[0].DbExpressionType == DbExpressionType.Column && ((ColumnExpression)columns[0]).ColumnName == ColumnExpression.AllColumns)
             {
                 columns.Clear();

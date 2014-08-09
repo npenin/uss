@@ -14,11 +14,15 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
 
         public override NLinq.Expressions.Expression Visit(NLinq.Expressions.MemberExpression expression)
         {
-            if (expression.Statement.ExpressionType == NLinq.Expressions.ExpressionTypes.Call)
+            if (expression.Statement.ExpressionType == ExpressionTypes.Call)
             {
                 MethodCall item = (MethodCall)expression.Statement;
                 switch (item.Identifier.Text)
                 {
+                    case "ToLower":
+                        return new SqlExpressions.Functions.Lower(Visit(expression.Previous));
+                    case "ToUpper":
+                        return new SqlExpressions.Functions.Upper(Visit(expression.Previous));
                     case "StartsWith":
                         return new Like(
                             Visit(expression.Previous),

@@ -5,6 +5,7 @@ using Evaluant.Uss.CommonVisitors;
 using Evaluant.Uss.SqlExpressions;
 using Evaluant.Uss.NLinqVisitors;
 using Evaluant.Uss.NLinqImprovements;
+using Evaluant.NLinq.Expressions;
 
 namespace Evaluant.Uss.SqlExpressions.Visitors
 {
@@ -187,6 +188,30 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
         {
             if (item.Parameters != expression)
                 return new Functions.Exec((IDbStatement)expression[0]);
+            return item;
+        }
+        public virtual Function Update(Functions.Lower item, NLinq.Expressions.Expression[] expression)
+        {
+            if (item.Parameters != expression)
+                return new Functions.Lower(expression[0]);
+            return item;
+        }
+        public virtual Function Update(Functions.Upper item, NLinq.Expressions.Expression[] expression)
+        {
+            if (item.Parameters != expression)
+                return new Functions.Upper(expression[0]);
+            return item;
+        }
+        public virtual Function Update(Functions.DatePart item, NLinq.Expressions.Expression[] expression)
+        {
+            if (item.Parameters != expression)
+                return new Functions.DatePart((Identifier)expression[0], expression[1]);
+            return item;
+        }
+        public virtual Function Update(Functions.DateAdd item, NLinq.Expressions.Expression[] expression)
+        {
+            if (item.Parameters != expression)
+                return new Functions.DateAdd((Identifier)expression[0], expression[1], expression[2]);
             return item;
         }
     }

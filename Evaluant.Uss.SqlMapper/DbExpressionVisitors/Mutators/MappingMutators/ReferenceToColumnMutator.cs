@@ -137,13 +137,18 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
 
         TableAlias currentAlias;
 
+        public override NLinq.Expressions.Expression Visit(NLinq.Expressions.MethodCall item)
+        {
+            return base.Visit(item);
+        }
+
         public override NLinq.Expressions.Expression Visit(NLinq.Expressions.MemberExpression item)
         {
             NLinq.Expressions.Expression target = Visit(item.Previous);
             TableAlias entityAlias = currentAlias;
             NLinq.Expressions.Expression statement = Visit(item.Statement);
 
-            if (statement is Evaluant.NLinq.Expressions.Identifier)
+            if (statement.ExpressionType==NLinq.Expressions.ExpressionTypes.Identifier)
             {
                 string propertyName = ((Evaluant.NLinq.Expressions.Identifier)statement).Text;
                 if (inFrom && currentEntity.References.ContainsKey(propertyName))
@@ -215,15 +220,15 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators.MappingMutators
                         }
                         return new EntityExpression(lastAliasDefined) { Type = reference.Target.Type };
                     }
-                    else
-                    {
-                        if (!loadedReferences.ContainsKey(targetReferencePath))
-                            return updater.Update(item, currentEntityExpression, item.Statement);
-                        //return new ComplexColumnExpression(currentAlias, target is SelectStatement ? new EntityIdentifier(propertyName, currentEntityExpression) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
-                        return updater.Update(item, target, item.Statement);
-                        //return new ComplexColumnExpression(currentAlias, target is SelectStatement ? new EntityIdentifier(propertyName, new EntityExpression(loadedReferences[targetReferencePath]) { Type = currentEntity.Type }) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
-                        //return updater.Update(item, target, target is SelectStatement ? new EntityIdentifier(propertyName, new EntityExpression(loadedReferences[targetReferencePath]) { Type = currentEntity.Type }) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
-                    }
+                    //else
+                    //{
+                    //    if (!loadedReferences.ContainsKey(targetReferencePath))
+                    //        return updater.Update(item, target, statement);
+                    //    //return new ComplexColumnExpression(currentAlias, target is SelectStatement ? new EntityIdentifier(propertyName, currentEntityExpression) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
+                    //    return updater.Update(item, target, statement);
+                    //    //return new ComplexColumnExpression(currentAlias, target is SelectStatement ? new EntityIdentifier(propertyName, new EntityExpression(loadedReferences[targetReferencePath]) { Type = currentEntity.Type }) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
+                    //    //return updater.Update(item, target, target is SelectStatement ? new EntityIdentifier(propertyName, new EntityExpression(loadedReferences[targetReferencePath]) { Type = currentEntity.Type }) : new Evaluant.NLinq.Expressions.Identifier(propertyName));
+                    //}
                 }
             }
             return updater.Update(item, target, statement);

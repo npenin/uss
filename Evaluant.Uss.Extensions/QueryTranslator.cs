@@ -265,12 +265,26 @@ namespace Evaluant.Uss.Extensions
                         clauses.Add(from2);
                         tree = new QueryExpression(from, new QueryBody(clauses, select, null));
                         break;
-                    case "Count":
                     case "Avg":
                     case "Sum":
+                        if (subExpression == null)
+                            subExpression = new QueryExpression(from, new QueryBody(clauses, new SelectClause(identifiers["#First"]), null));
+                        tree = new NLINQ.MemberExpression(new MethodCall(new Identifier(call.Method.Name)), subExpression);
+                        return tree;
+                    case "Count":
                     case "Any":
                         if (call.Arguments.Count > 1)
-                            clauses.Add(new WhereClause(Visit(call.Arguments[1])));
+                        {
+                            if (subExpression != null)
+                            {
+                                var param = ((System.Linq.Expressions.LambdaExpression)call.Arguments[1]).Parameters[0];
+                                var paramIdent = new Identifier(param.Name);
+                                identifiers.Add(param.Name, paramIdent);
+                                subExpression = new QueryExpression(new FromClause(param.Type.FullName, paramIdent, subExpression), new QueryBody(new ClauseList(new List<QueryBodyClause>() { new WhereClause(Visit(call.Arguments[1])) }), new SelectClause(paramIdent), null));
+                            }
+                            else
+                                clauses.Add(new WhereClause(Visit(call.Arguments[1])));
+                        }
                         if (subExpression == null)
                             subExpression = new QueryExpression(from, new QueryBody(clauses, new SelectClause(identifiers["#First"]), null));
                         tree = new NLINQ.MemberExpression(new MethodCall(new Identifier(call.Method.Name)), subExpression);
@@ -304,7 +318,7 @@ namespace Evaluant.Uss.Extensions
                         return subExpression;
                 }
             }
-            if (call.Method.DeclaringType == typeof(string))
+            if (call.Method.DeclaringType == typeof(string) || call.Method.DeclaringType == typeof(DateTime))
             {
                 NLinq.Expressions.Expression source = Visit(call.Object);
                 List<NLinq.Expressions.Expression> parameters = new List<NLinq.Expressions.Expression>();

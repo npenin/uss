@@ -13,7 +13,7 @@ using Evaluant.Uss.SqlExpressions.Functions;
 
 namespace Evaluant.Uss.SqlExpressions.Visitors
 {
-    [DebuggerStepThrough]
+    //[DebuggerStepThrough]
     public class DbExpressionVisitor : NLinqExpressionVisitor<DbExpressionUpdater>, IDbExpressionVisitor
     {
         public DbExpressionVisitor() : base(new DbExpressionUpdater()) { }
@@ -138,6 +138,14 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                     return Visit((Like)item);
                 case FunctionType.Exec:
                     return Visit((Exec)item);
+                case FunctionType.Lower:
+                    return Visit((Lower)item);
+                case FunctionType.Upper:
+                    return Visit((Upper)item);
+                case FunctionType.DatePart:
+                    return Visit((DatePart)item);
+                case FunctionType.DateAdd:
+                    return Visit((DateAdd)item);
                 default:
                     throw new NotSupportedException(string.Format("The function '{0}' is not supported", item.GetType().FullName));
             }
@@ -571,7 +579,24 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
             return updater.Update(item, Visit(item.Expression));
         }
 
-        public virtual Function Visit(Exec item)
+        public virtual IAliasedExpression Visit(Exec item)
+        {
+            return updater.Update(item, VisitArray(item.Parameters, Visit));
+        }
+
+        public virtual IAliasedExpression Visit(Lower item)
+        {
+            return updater.Update(item, VisitArray(item.Parameters, Visit));
+        }
+        public virtual IAliasedExpression Visit(Upper item)
+        {
+            return updater.Update(item, VisitArray(item.Parameters, Visit));
+        }
+        public virtual IAliasedExpression Visit(DatePart item)
+        {
+            return updater.Update(item, VisitArray(item.Parameters, Visit));
+        }
+        public virtual IAliasedExpression Visit(DateAdd item)
         {
             return updater.Update(item, VisitArray(item.Parameters, Visit));
         }

@@ -44,7 +44,7 @@ namespace Evaluant.Uss.SqlMapper.Mapping
                     return null;
                 if (discriminator == null)
                     discriminator = new NLinqQuery(Discriminator).Expression;
-                discriminator = new DbExpressionVisitors.Mutators.ValueExpressionMutator().Visit(discriminator);
+                discriminator = new DbExpressionVisitors.Mutators.ValueExpressionMutator(null).Visit(discriminator);
                 return discriminator;
             }
         }

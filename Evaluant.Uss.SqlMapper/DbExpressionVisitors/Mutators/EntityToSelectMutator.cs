@@ -74,7 +74,10 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
 
         public override Evaluant.NLinq.Expressions.QueryBodyClause Visit(Evaluant.NLinq.Expressions.WhereClause expression)
         {
-            select.Where = (Evaluant.NLinq.Expressions.WhereClause)base.Visit(expression);
+            if (select.Where == null)
+                select.Where = (Evaluant.NLinq.Expressions.WhereClause)base.Visit(expression);
+            else
+                select.Where = new NLinq.Expressions.WhereClause(new NLinq.Expressions.BinaryExpression(NLinq.Expressions.BinaryExpressionType.And, select.Where.Expression, Visit(expression.Expression)));
             return select.Where;
         }
 
@@ -148,8 +151,12 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
 
                 if (((EntityExpression)entityReferenceExpression.Target).Expression.ExpressionType == NLinq.Expressions.ExpressionTypes.AnonymousNew)
                 {
+                    var finder = new TypeFinderVisitor(engine.Provider.Model, engine.Provider.Mapping);
                     foreach (NLinq.Expressions.AnonymousParameter parameter in ((NLinq.Expressions.AnonymousNew)((EntityExpression)entityReferenceExpression.Target).Expression).Parameters)
-                        columns.Add(new ColumnExpression(entityReferenceExpression.Alias, parameter.Identifier, parameter.Identifier));
+                    {
+                        finder.Visit(parameter.Expression);
+                        columns.Add(new ColumnExpression(entityReferenceExpression.Alias, parameter.Identifier, finder.DbType));
+                    }
                 }
                 else
                 {
@@ -205,29 +212,40 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
             if (expression.Statement.ExpressionType == NLinq.Expressions.ExpressionTypes.Call)
             {
                 NLinq.Expressions.MethodCall item = (NLinq.Expressions.MethodCall)expression.Statement;
-                AggregateFunctionType aggregateType = AggregateFunctionType.Unknown;
-                if (item.Identifier.Text == "Count")
-                    aggregateType = AggregateFunctionType.Count;
-                if (item.Identifier.Text == "Average")
-                    aggregateType = AggregateFunctionType.Avg;
-                if (item.Identifier.Text == "Max")
-                    aggregateType = AggregateFunctionType.Max;
-                if (item.Identifier.Text == "Min")
-                    aggregateType = AggregateFunctionType.Min;
-                if (item.Identifier.Text == "Sum")
-                    aggregateType = AggregateFunctionType.Sum;
+                AggregateFunctionType aggregateType;
+                switch (item.Identifier.Text)
+                {
+                    case "Count":
+                        aggregateType = AggregateFunctionType.Count;
+                        break;
+                    case "Average":
+                        aggregateType = AggregateFunctionType.Avg;
+                        break;
+                    case "Max":
+                        aggregateType = AggregateFunctionType.Max;
+                        break;
+                    case "Min":
+                        aggregateType = AggregateFunctionType.Min;
+                        break;
+                    case "Sum":
+                        aggregateType = AggregateFunctionType.Sum;
+                        break;
+                    default:
+                        aggregateType = AggregateFunctionType.Unknown;
+                        break;
+                }
                 if (aggregateType == AggregateFunctionType.Unknown)
                 {
-
-                    Visit(expression.Previous);
                     SelectStatement oldSelect = select;
                     if (item.Identifier.Text == "Take")
                     {
+                        Visit(expression.Previous);
                         select.Top = (int)((Constant)item.Parameters[0]).Value;
                         return select;
                     }
                     if (item.Identifier.Text == "Skip")
                     {
+                        Visit(expression.Previous);
                         if (Convert.ToInt32(((Constant)item.Parameters[0]).Value) == 0)
                             return select;
 
@@ -239,6 +257,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                         columns.Add(new ComplexColumnExpression(null, new RowNumber(select.OrderBy), "rn" + select.Alias));
                         select.Columns = columns.ToArray();
                         columns.RemoveAt(columns.Count - 1);
+                        oldSelect = select;
                         select = new SelectStatement(new TableAlias(), null, new FromClause(select), null, new NLinq.Expressions.WhereClause(new NLinq.Expressions.BinaryExpression(NLinq.Expressions.BinaryExpressionType.Greater, new ColumnExpression(select.Alias, "rn" + select.Alias), item.Parameters[0])));
                         columns = new List<IAliasedExpression>();
                         foreach (IAliasedExpression expr in oldSelect.Columns)
@@ -284,11 +303,13 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                     }
                     if (item.Identifier.Text == "First")
                     {
+                        Visit(expression.Previous);
                         select.Top = 1;
                         return select;
                     }
                     if (item.Identifier.Text == "Last")
                     {
+                        Visit(expression.Previous);
                         if (select.OrderBy != null && select.OrderBy.Criterias != null && select.OrderBy.Criterias.Count > 0)
                         {
                             foreach (NLinq.Expressions.OrderByCriteria criteria in select.OrderBy.Criterias)
@@ -304,15 +325,17 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                     if (item.Identifier.Text == "Any")
                     {
                         if (expression.Previous.ExpressionType != NLinq.Expressions.ExpressionTypes.Quote)
-                            return new Exists(new SelectStatement(
-                                new TableAlias(),
-                                new[] { new ComplexColumnExpression(
+                        {
+                            select = new SelectStatement(new TableAlias());
+                            select.Columns = new[] { new ComplexColumnExpression(
                                     null,
                                     new Constant(1, System.Data.DbType.Int32)) 
-                                },
-                                null,
-                                null,
-                                new NLinq.Expressions.WhereClause(Visit(expression.Previous))));
+                                };
+                            select.Where = new NLinq.Expressions.WhereClause(Visit(expression.Previous));
+                            var result = new Exists(select);
+                            select = oldSelect;
+                            return result;
+                        }
                         return new Exists(Visit(expression.Previous));
                     }
                     if (item.Identifier.Text == "Distinct")
@@ -321,14 +344,15 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                         select.Distinct = true;
                         return select;
                     }
+                    return expression;
                     select = new SelectStatement(new TableAlias());
                     Visit(expression.Previous);
-                    SelectStatement previous = select;
+                    SelectStatement previousSelect = select;
                     select = oldSelect;
                     if (item.Parameters.Length == 0)
-                        return new SelectStatement(new TableAlias(), new IAliasedExpression[] { new Aggregate(item.Identifier, ColumnExpression.AllColumns) }, new FromClause(previous), null, null);
+                        return new SelectStatement(new TableAlias(), new IAliasedExpression[] { new Aggregate(item.Identifier, ColumnExpression.AllColumns) }, new FromClause(previousSelect), null, null);
                     else
-                        return new SelectStatement(new TableAlias(), new IAliasedExpression[] { new Aggregate(item.Identifier, item.Parameters) }, new FromClause(previous), null, null);
+                        return new SelectStatement(new TableAlias(), new IAliasedExpression[] { new Aggregate(item.Identifier, item.Parameters) }, new FromClause(previousSelect), null, null);
                 }
                 else
                 {
@@ -417,7 +441,7 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
 
         public override Evaluant.NLinq.Expressions.Expression Visit(Evaluant.NLinq.Expressions.QueryExpression expression)
         {
-            select = new SelectStatement(new TableAlias());
+            var select = this.select = new SelectStatement(new TableAlias());
             if (getAlias)
                 return ((Evaluant.NLinq.Expressions.SelectClause)((Evaluant.NLinq.Expressions.QueryExpression)base.Visit(expression)).QueryBody.SelectOrGroup).Expression;
 

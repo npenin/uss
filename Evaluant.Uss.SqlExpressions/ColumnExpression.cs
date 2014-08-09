@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Evaluant.NLinq.Expressions;
+using System.Data;
 
 namespace Evaluant.Uss.SqlExpressions
 {
@@ -20,6 +21,13 @@ namespace Evaluant.Uss.SqlExpressions
         {
             ColumnName = columnName;
             ColumnAlias = columnAlias;
+        }
+
+        public ColumnExpression(TableAlias alias, Identifier columnName, DbType type)
+            : base(alias)
+        {
+            ColumnName = columnName;
+            Type = type;
         }
 
         public ColumnExpression(TableAlias alias, string columnName)
@@ -42,11 +50,13 @@ namespace Evaluant.Uss.SqlExpressions
 
         public Identifier ColumnName { get; set; }
         public Identifier ColumnAlias { get; set; }
+        public DbType Type { get; set; }
 
 
         public override DbExpressionType DbExpressionType
         {
             get { return DbExpressionType.Column; }
         }
+
     }
 }

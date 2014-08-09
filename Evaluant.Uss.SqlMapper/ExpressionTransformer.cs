@@ -28,7 +28,7 @@ namespace Evaluant.Uss.SqlMapper
         public ExpressionTransformer(SqlMapperEngine engine)
         {
             //visitors.Add(new MethodCallMutator());
-            visitors.Add(new ValueExpressionMutator());
+            visitors.Add(new ValueExpressionMutator(engine.Driver));
             visitors.Add(new StringOperations());
             visitors.Add(new IdentifierToEntityMutator());
             visitors.Add(new ToManyIsNotNull(engine));
@@ -36,9 +36,10 @@ namespace Evaluant.Uss.SqlMapper
             if (!engine.Driver.IsOrm)
             {
                 //visitors.Add(new AggregateMutator());
-                visitors.Add(new EntityToTableMutator(engine.Provider.Mapping));
+                visitors.Add(new EntityToTableMutator(engine.Provider.Mapping, engine.Driver));
                 ReferenceToColumnMutator rtcm = new ReferenceToColumnMutator(engine.Provider.Mapping);
                 visitors.Add(rtcm);
+                visitors.Add(new DateOperations(engine.Provider.Mapping));
                 visitors.Add(new AttributeToColumnMutator(engine.Provider.Mapping));
                 visitors.Add(new LazyAliasResolver(rtcm.AliasesMapping));
                 visitors.Add(new InheritanceMappingMutator(engine.Provider.Mapping));
