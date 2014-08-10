@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Evaluant.Uss.SqlExpressions
 {
-    public abstract class AliasedExpression : DbExpression, Evaluant.Uss.SqlExpressions.IAliasedExpression
+    public abstract class AliasedExpression : DbExpression, IAliasedExpression
     {
         TableAlias alias;
         protected AliasedExpression(TableAlias alias)

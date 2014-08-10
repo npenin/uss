@@ -86,6 +86,7 @@
     <Compile Include="DbExpressionVisitors\FieldExtractionVisitor.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\AddParentIdToLoadedReference.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\AggregateMutator.cs" />
+    <Compile Include="DbExpressionVisitors\Mutators\ArrayToUnionAll.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\DateOperations.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\EntityToSelectMutator.cs" />
     <Compile Include="DbExpressionVisitors\Mutators\IdentifierToEntityMutator.cs" />

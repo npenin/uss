@@ -74,8 +74,8 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Optimizers
         {
             if (item.Type != null)
             {
-                currentEntity = engine.Factory.Model.Entities[item.Type];
-                currentReference = null;
+                if (engine.Factory.Model.Entities.TryGetValue(item.Type, out currentEntity))
+                    currentReference = null;
             }
             return base.Visit(item);
         }

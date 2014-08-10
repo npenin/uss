@@ -56,7 +56,8 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
         IVisitor<Lower, IAliasedExpression>,
         IVisitor<Upper, IAliasedExpression>,
         IVisitor<DatePart, IAliasedExpression>,
-        IVisitor<DateAdd, IAliasedExpression>
+        IVisitor<DateAdd, IAliasedExpression>,
+        IVisitor<Union, IAliasedExpression>
     {
     }
 }

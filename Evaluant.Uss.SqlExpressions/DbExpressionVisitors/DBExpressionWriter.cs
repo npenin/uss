@@ -176,7 +176,7 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
             writer.Write(item.MethodName.Text);
             writer.Write('(');
             var isFirst = true;
-            foreach(var param in item.Parameters)
+            foreach (var param in item.Parameters)
             {
                 if (isFirst)
                     isFirst = false;
@@ -293,6 +293,27 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
         }
 
         #endregion
+
+        public override IAliasedExpression Visit(Union item)
+        {
+            bool isFirst = true;
+            if (item.Alias != null)
+                writer.Write('(');
+            foreach (var select in item.SelectStatements)
+            {
+                if (isFirst)
+                    isFirst = false;
+                else
+                    writer.WriteLine("UNION ALL ");
+                Visit(select);
+            }
+            if (item.Alias != null)
+            {
+                writer.Write(')');
+                Visit(item.Alias);
+            }
+            return item;
+        }
 
         #region IVisitor<InsertStatement,Expression> Members
 
@@ -563,14 +584,17 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
 
         public override Evaluant.Uss.SqlExpressions.TableAlias Visit(Evaluant.Uss.SqlExpressions.TableAlias item)
         {
-            //if (item is Mapping.LazyTableAlias)
-            //    return Visit((Mapping.LazyTableAlias)item);
-            if (!alias.ContainsKey(item))
-                alias.Add(item, "t" + alias.Count);
+            if (item != null)
+            {
+                //if (item is Mapping.LazyTableAlias)
+                //    return Visit((Mapping.LazyTableAlias)item);
+                if (!alias.ContainsKey(item))
+                    alias.Add(item, "t" + alias.Count);
 
-            writer.Write(beginEscape);
-            writer.Write(alias[item]);
-            writer.Write(endEscape);
+                writer.Write(beginEscape);
+                writer.Write(alias[item]);
+                writer.Write(endEscape);
+            }
             return item;
         }
 

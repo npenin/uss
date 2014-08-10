@@ -40,6 +40,7 @@ namespace Evaluant.Uss.SqlExpressions
         Schema,
         Not,
         HardCoded,
+        Union,
     }
 
     public enum DbUnaryExpressionType

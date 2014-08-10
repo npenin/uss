@@ -336,5 +336,45 @@ namespace Evaluant.Uss.Tests
             Assert.IsTrue(personCities.Where(p => p.Address.City == "Mulhouse").Any(p => p.Friends.Any()));
             Assert.IsFalse(personCities.Where(p => p.Address.City == "Strasbourg").Any(p => p.Friends.Any()));
         }
+
+        [TestMethod]
+        public void TestTree()
+        {
+            IObjectContext c = GetContext();
+            if (c == null)
+                return;
+            c.InitializeRepository();
+            c.BeginTransaction();
+            c.Serialize(new Tree()
+            {
+                Name = "Level1",
+                Path = "/1/",
+                Children = new[] { 
+                    new Tree { Path = "/1/", Name = "Level2" },
+                    new Tree { Path = "/1/2/", Name = "Level2" },
+                    new Tree { Path = "/1/3/", Name = "Level3", Children=new Tree[]{
+                        new Tree { Path = "/1/3/4/", Name = "Level4" },
+                        new Tree { Path = "/1/3/5/", Name = "Level5" },
+                        new Tree { Path = "/1/3/6/", Name = "Level6" },
+                        new Tree { Path = "/1/3/7/", Name = "Level7" },
+
+                    }},
+                    new Tree { Path = "/1/4/", Name = "Level4" },
+                    new Tree { Path = "/1/5/", Name = "Level5" },
+                    new Tree { Path = "/1/6/", Name = "Level6" },
+                    new Tree { Path = "/1/7/", Name = "Level7" },
+                    new Tree { Path = "/1/8/", Name = "Level8" },
+                    new Tree { Path = "/1/9/", Name = "Level9" },
+                    new Tree { Path = "/1/10/", Name = "Level10" },
+                }
+            });
+            c.CommitTransaction();
+
+
+            string[] paths = new[] { "/1/3/", "/1/5/", "/1/7/", "/1/9/", };
+            Assert.AreEqual(15, c.Cast<Tree>().Count(t => t.Path.StartsWith("/1/")));
+            Assert.AreEqual(8, c.Cast<Tree>().Count(t => paths.Any(p => t.Path.StartsWith(p))));
+
+        }
     }
 }

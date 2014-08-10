@@ -214,5 +214,12 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                 return new Functions.DateAdd((Identifier)expression[0], expression[1], expression[2]);
             return item;
         }
+
+        internal IAliasedExpression Update(Union item, TableAlias alias, IAliasedExpression[] aliasedExpression)
+        {
+            if (item.SelectStatements != aliasedExpression || item.Alias != alias)
+                return new Union(alias, aliasedExpression);
+            return item;
+        }
     }
 }

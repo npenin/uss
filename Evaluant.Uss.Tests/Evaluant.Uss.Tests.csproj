@@ -130,6 +130,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Tree.cs" />
     <Compile Include="ObjectContext\ObjectContextTest.cs" />
     <Compile Include="ObjectContext\Relationships\Model\Address.cs" />
     <Compile Include="ObjectContext\Relationships\Model\Person.cs" />

@@ -31,7 +31,11 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Mutators
                 entityIdentifierAliases.Add(expression.Identifier.Text, ((EntityIdentifier)expression.Identifier).Entity.Alias);
             if (expression.Type != null)
             {
-                TableExpression src = new SqlExpressions.Mapping.EntitySourceExpression(((EntityIdentifier)expression.Identifier).Entity.Alias, expression.Type);
+                IAliasedExpression src;
+                if (expression.Type.StartsWith("System."))
+                    src = ((EntityIdentifier)expression.Identifier).Entity;
+                else
+                    src = new SqlExpressions.Mapping.EntitySourceExpression(((EntityIdentifier)expression.Identifier).Entity.Alias, expression.Type);
                 if (select.From == null)
                     select.From = new FromClause(src);
                 else

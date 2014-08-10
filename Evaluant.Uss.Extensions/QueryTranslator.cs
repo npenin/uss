@@ -378,10 +378,16 @@ namespace Evaluant.Uss.Extensions
 
         public NLinq.Expressions.Expression Visit(System.Linq.Expressions.MemberExpression expression)
         {
-            if (expression.Expression is ParameterExpression && ((((ParameterExpression)expression.Expression).Name.StartsWith("<>")) || (((ParameterExpression)expression.Expression).Name.StartsWith("VB$"))))
+            if (expression.Expression.NodeType == ExpressionType.Parameter && ((((ParameterExpression)expression.Expression).Name.StartsWith("<>")) || (((ParameterExpression)expression.Expression).Name.StartsWith("VB$"))))
                 return identifiers[expression.Member.Name];
-            NLinq.Expressions.Expression result = Visit(expression.Expression);
-            return new NLINQ.MemberExpression(new Identifier(expression.Member.Name), result);
+            if (expression.Expression.NodeType == ExpressionType.Constant)
+            {
+                var cst = System.Linq.Expressions.Expression.Lambda(expression).Compile().DynamicInvoke();
+                if (cst == null)
+                    return new NLINQ.ValueExpression(null, TypeCode.Object);
+                return new NLINQ.ValueExpression(cst, Evaluant.Uss.Utility.Helper.GetTypeCode(cst));
+            }
+            return new NLINQ.MemberExpression(new Identifier(expression.Member.Name), Visit(expression.Expression));
         }
 
         public NLinq.Expressions.Expression Visit(ParameterExpression expression)

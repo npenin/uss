@@ -35,6 +35,7 @@ namespace Evaluant.Uss.SqlMapper
             visitors.Add(new EntityToSelectMutator(engine));
             if (!engine.Driver.IsOrm)
             {
+                visitors.Add(new ArrayToUnionAll(engine.Driver));
                 //visitors.Add(new AggregateMutator());
                 visitors.Add(new EntityToTableMutator(engine.Provider.Mapping, engine.Driver));
                 ReferenceToColumnMutator rtcm = new ReferenceToColumnMutator(engine.Provider.Mapping);

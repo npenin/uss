@@ -153,7 +153,25 @@ namespace Evaluant.Uss.SqlMapper.Mapper
                         var target = GetEntityMapping(model.Entities[rm.ChildType]);
                         string[] childFields = new string[target.Ids.Keys.Count];
                         target.Ids.Keys.CopyTo(childFields, 0);
-                        rm.Rules.Add(new Mapping.Rule() { ParentFieldNames = "FK_" + target.TableName + string.Join(",FK_" + target.TableName, childFields), ChildSchema = target.Schema, ChildTableName = target.TableName, ChildFieldNames = string.Join(",", childFields) });
+                        for (int i = 0; i < childFields.Length; i++)
+                        {
+                            bool fkMapped = false;
+                            foreach (var attr in em.Attributes.Keys)
+                            {
+                                if ((attr == "FK_" + rm.Name || attr == "FK_" + target.TableName) && childFields.Length == 1 ||
+                                (attr == "FK_" + rm.Name + childFields[i]
+                                || attr == rm.Name + childFields[i]
+                                || attr == target.TableName + childFields[i]))
+                                {
+                                    childFields[i] = attr;
+                                    fkMapped = true;
+                                    break;
+                                }
+                            }
+                            if (!fkMapped)
+                                childFields[i] = "FK_" + target.TableName + childFields[i];
+                        }
+                        rm.Rules.Add(new Mapping.Rule() { ParentFieldNames = string.Join("," + target.TableName, childFields), ChildSchema = target.Schema, ChildTableName = target.TableName, ChildFieldNames = string.Join(",", target.Ids.Keys) });
                     }
 
                 }

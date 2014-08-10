@@ -13,7 +13,7 @@ using Evaluant.Uss.SqlExpressions.Functions;
 
 namespace Evaluant.Uss.SqlExpressions.Visitors
 {
-    //[DebuggerStepThrough]
+    [DebuggerStepThrough]
     public class DbExpressionVisitor : NLinqExpressionVisitor<DbExpressionUpdater>, IDbExpressionVisitor
     {
         public DbExpressionVisitor() : base(new DbExpressionUpdater()) { }
@@ -93,6 +93,8 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                     return Visit((HardCodedExpression)exp);
                 case DbExpressionType.Schema:
                     return Visit((SchemaStatement)exp);
+                case DbExpressionType.Union:
+                    return Visit((Union)exp);
             }
             return (IDbExpression)VisitUnknown((Expression)exp);
         }
@@ -396,6 +398,8 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
 
         public virtual IDbExpression Visit(EntityExpression item)
         {
+            if (item == null)
+                return item;
             return updater.Update(item, Visit(item.Expression), Visit(item.Alias), item.Type);
         }
 
@@ -599,6 +603,10 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
         public virtual IAliasedExpression Visit(DateAdd item)
         {
             return updater.Update(item, VisitArray(item.Parameters, Visit));
+        }
+        public virtual IAliasedExpression Visit(Union item)
+        {
+            return updater.Update(item, Visit(item.Alias), VisitArray(item.SelectStatements, Visit));
         }
     }
 }

@@ -134,6 +134,7 @@
     <Compile Include="Statements\IfStatement.cs" />
     <Compile Include="Statements\InsertStatement.cs" />
     <Compile Include="Statements\SelectStatement.cs" />
+    <Compile Include="Union.cs" />
     <Compile Include="Statements\UpdateStatement.cs" />
     <Compile Include="Mapping\Table.cs" />
     <Compile Include="TableAlias.cs" />

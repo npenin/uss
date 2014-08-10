@@ -38,15 +38,13 @@ namespace Evaluant.Uss.SqlMapper.DbExpressionVisitors.Optimizers
                 List<SqlExpressions.IAliasedExpression> columns = new List<SqlExpressions.IAliasedExpression>();
                 foreach (var column in item.Columns)
                 {
-                    if (column.DbExpressionType == SqlExpressions.DbExpressionType.Column)
-                    {
-                        if (column is SqlExpressions.ComplexColumnExpression)
-                            columns.Add(column);
-                    }
+                    if (column.DbExpressionType == SqlExpressions.DbExpressionType.Column && column is SqlExpressions.ComplexColumnExpression)
+                        columns.Add(column);
                 }
                 if (columns.Count <= 1)
                 {
-                    if (columns.Count == 1 && ((SqlExpressions.IDbExpression)((SqlExpressions.ComplexColumnExpression)columns[0]).Expression).DbExpressionType == SqlExpressions.DbExpressionType.Case)
+                    if (columns.Count == 1 && (((SqlExpressions.IDbExpression)((SqlExpressions.ComplexColumnExpression)columns[0]).Expression).DbExpressionType == SqlExpressions.DbExpressionType.Case ||
+                        ((SqlExpressions.IDbExpression)((SqlExpressions.ComplexColumnExpression)columns[0]).Expression).DbExpressionType == SqlExpressions.DbExpressionType.Value))
                     {
                         columns.RemoveAt(0);
                     }
