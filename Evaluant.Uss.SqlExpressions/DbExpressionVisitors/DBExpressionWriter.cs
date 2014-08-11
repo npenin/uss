@@ -468,13 +468,17 @@ namespace Evaluant.Uss.SqlExpressions.Visitors
                 case System.Data.DbType.String:
                 case System.Data.DbType.StringFixedLength:
                 case System.Data.DbType.Xml:
+                case System.Data.DbType.Time:
+                    writer.Write("'");
+                    writer.Write(item.Value);
+                    writer.Write("'");
+                    break;
                 case System.Data.DbType.Date:
                 case System.Data.DbType.DateTime:
                 case System.Data.DbType.DateTime2:
                 case System.Data.DbType.DateTimeOffset:
-                case System.Data.DbType.Time:
                     writer.Write("'");
-                    writer.Write(item.Value);
+                    writer.Write(((DateTime)item.Value).ToString("s"));
                     writer.Write("'");
                     break;
                 case System.Data.DbType.Binary:
