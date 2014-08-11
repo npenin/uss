@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Uss.Core</id>
+    <version>$version$</version>
+    <authors>Nicolas Penin</authors>
+    <owners>Nicolas Penin</owners>
+    <projectUrl>https://github.com/npenin/uss</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Universal Storage Services (USS) is the fork EUSS. It aims to enable the developper to target any data source without changing one line of code.</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+  </metadata>
+</package>
