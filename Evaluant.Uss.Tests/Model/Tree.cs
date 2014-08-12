@@ -8,7 +8,7 @@ namespace Evaluant.Uss.Tests.Model
     public class Tree
     {
         public int Id { get; set; }
-        public IList<Tree> Children { get; set; }
+        public ICollection<Tree> Children { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
         private string parentPath;

@@ -95,7 +95,7 @@ namespace Evaluant.Uss.PersistentDescriptors
         /// <returns>Whether the type is implements IList or not</returns>
         public static bool IsList(Type type)
         {
-            return typeof(IList).IsAssignableFrom(type);
+            return typeof(ICollection).IsAssignableFrom(type);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace Evaluant.Uss.PersistentDescriptors
             do
             {
                 if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() != null &&
-                     typeof(IList<>).IsAssignableFrom(currentType.GetGenericTypeDefinition()))
+                     typeof(ICollection<>).IsAssignableFrom(currentType.GetGenericTypeDefinition()))
                     return true;
 
                 currentType = currentType.BaseType;
@@ -129,7 +129,7 @@ namespace Evaluant.Uss.PersistentDescriptors
             do
             {
                 if (currentType.IsGenericType && currentType.GetGenericTypeDefinition() != null &&
-                    typeof(IList<>).IsAssignableFrom(currentType.GetGenericTypeDefinition()))
+                    typeof(ICollection<>).IsAssignableFrom(currentType.GetGenericTypeDefinition()))
                     return currentType.GetGenericArguments()[0];
 
                 currentType = currentType.BaseType;
